@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "./components/navbar";
 
 const vazirmatn = Vazirmatn({
   variable: "--font-vazirmatn",
@@ -27,7 +28,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Navbar />
+          <div className="w-full h-[84dvh] bg-white/35 flex flex-col justify-around items-center ">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
