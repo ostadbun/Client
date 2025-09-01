@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "./components/navbar";
 
 const vazirmatn = Vazirmatn({
   variable: "--font-vazirmatn",
@@ -19,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fa" suppressHydrationWarning>
       <body className={` ${vazirmatn.className} antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -27,6 +28,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
+
           {children}
         </ThemeProvider>
       </body>
