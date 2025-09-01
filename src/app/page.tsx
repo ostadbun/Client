@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <div className="absolute -z-10 top-0 overflow-hidden h-screen w-full">
-        <Particles />
+        <Particles className=" h-screen!" />
         <Meteors />
       </div>
       <HeroSection />
