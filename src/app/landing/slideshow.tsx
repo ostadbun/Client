@@ -10,7 +10,7 @@ const Slideshow = () => {
   ];
 
   return (
-    <div className="h-3/12 flex items-center">
+    <div className="h-3/12 relative flex w-full flex-col items-center justify-center overflow-hidden">
       <Marquee>
         {images.map((v, i) => {
           return (
@@ -28,6 +28,8 @@ const Slideshow = () => {
           );
         })}
       </Marquee>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
     </div>
   );
 };
