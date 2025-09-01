@@ -45,20 +45,43 @@ html {
     --radius-xl: calc(var(--radius) + 4px);
     --animate-marquee: marquee var(--duration) infinite linear;
     --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
-  @keyframes marquee {
-  from {
-    transform: translateX(0);
+    @keyframes marquee {
+        from {
+            transform: translateX(0);
         }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
+        to {
+            transform: translateX(calc(-100% - var(--gap)));
         }
     }
-  @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
+    @keyframes marquee-vertical {
+        from {
+            transform: translateY(0);
         }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
+        to {
+            transform: translateY(calc(-100% - var(--gap)));
+        }
+    }
+    --animate-line-shadow: line-shadow 15s linear infinite;
+    @keyframes line-shadow {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 100% -100%;
+        }
+    }
+    --animate-meteor: meteor 5s linear infinite;
+    @keyframes meteor {
+        0% {
+            transform: rotate(var(--angle)) translateX(0);
+            opacity: 1;
+        }
+        70% {
+            opacity: 1;
+        }
+        100% {
+            transform: rotate(var(--angle)) translateX(-500px);
+            opacity: 0;
         }
     }
 }
@@ -141,7 +164,30 @@ html {
     }
 }
 
-::view-transition-old(root), ::view-transition-new(root) {
+::view-transition-old(root),
+::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;
+}
+
+/*----- i added*/
+
+.fade-mask {
+    -webkit-mask-image: radial-gradient(
+        circle,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 20%
+    );
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: cover;
+
+    mask-image: radial-gradient(
+        circle,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 80%
+    );
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: cover;
 }

@@ -3,6 +3,7 @@ import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "./components/navbar";
+import { Particles } from "@/components/magicui/particles";
 
 const vazirmatn = Vazirmatn({
   variable: "--font-vazirmatn",
@@ -29,9 +30,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="w-full h-[84dvh] flex flex-col justify-around items-center ">
-            {children}
-          </div>
+
+          {children}
         </ThemeProvider>
       </body>
     </html>
