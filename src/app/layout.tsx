@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fa" suppressHydrationWarning>
       <body className={` ${vazirmatn.className} antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -29,7 +29,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="w-full h-[84dvh] bg-white/35 flex flex-col justify-around items-center ">
+          <div className="w-full h-[84dvh] flex flex-col justify-around items-center ">
             {children}
           </div>
         </ThemeProvider>
