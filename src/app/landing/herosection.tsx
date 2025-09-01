@@ -1,6 +1,5 @@
 import { TextAnimate } from "@/components/magicui/text-animate";
-import Slideshow from "./slideshow";
-import { Meteors } from "@/components/magicui/meteors";
+
 import DetailAnimation from "./DetailAnimation";
 
 const HeroSection = () => {

@@ -3,18 +3,15 @@ import { Button } from "@/components/ui/button";
 import Logo from "./logo";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
-import { ModeToggle } from "./button";
+
 import { Github, Menu } from "lucide-react";
-import { Label } from "@radix-ui/react-dropdown-menu";
 
 interface NavItems {
   title: string;
