@@ -13,6 +13,7 @@ import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggle
 
 import { Github, Menu } from "lucide-react";
 import Link from "next/link";
+import { link } from "fs";
 
 interface NavItems {
   title: string;
@@ -20,8 +21,8 @@ interface NavItems {
 }
 const Navbar = () => {
   const NavItems: NavItems[] = [
-    { link: "a", title: "اساتید" },
-    { link: "d", title: "دروس" },
+    { link: "/master", title: "اساتید" },
+    { link: "/subjects", title: "دروس" },
   ];
 
   return (
@@ -44,7 +45,13 @@ const Navbar = () => {
           </div>
 
           {NavItems.map((v, i) => {
-            return <Button key={i}>{v.title}</Button>;
+            return(
+              <Link key={i} href={v.link}>
+              <Button key={i}>
+              {v.title}
+              </Button>
+              </Link>
+              )
           })}
 
           <Link href={"login"}>
@@ -74,9 +81,11 @@ const Navbar = () => {
             <div className=" w-full flex gap-5 flex-wrap justify-center">
               {NavItems.map((v, i) => {
                 return (
-                  <Button className="w-10/12" key={i}>
+                  <Link key={i} href={v.link}>
+                    <Button className="w-10/12" key={i}>
                     {v.title}
                   </Button>
+                  </Link>
                 );
               })}
             </div>
