@@ -5,7 +5,7 @@ import DetailAnimation from "./DetailAnimation";
 const HeroSection = () => {
   return (
     <>
-      <div className="relative z-10 md:w-11/12 xl:w-1/2  mx-auto mt-20 mb-14 h-6/12 ">
+      <div className="md:w-11/12 xl:w-1/2  mx-auto mt-20 mb-14 h-6/12 ">
         <div className="w-full flex justify-center items-center">
           <h1 className="text-4xl md:text-7xl font-extrabold leading-14 md:leading-28 opacity-65">
             با شفّافیت انتخاب کن
@@ -16,7 +16,7 @@ const HeroSection = () => {
 
         <div className="w-11/12 md:w-full mt-12  mx-auto max-w-[600px] flex justify-center items-center">
             <TextAnimate
-              className="pointer-events-auto relative z-10"
+              className="pointer-events-auto "
               animation="blurIn"
               as="p">
             این یک سیستم متن‌باز و رایگان است که فرآیند انتخاب واحد (انتخاب
@@ -28,9 +28,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="relative z-0">
         <DetailAnimation />
-      </div>
+
     </>
   );
 };

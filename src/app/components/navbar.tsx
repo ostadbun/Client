@@ -36,13 +36,14 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="gap-3 flex">
-          <div className="gap-3 flex items-center">
-            <a href="https://github.com/ostadbun">
-              <Github />
+        <div className="gap-5 flex">
+          <div className="gap-4 flex items-center">
+            <a className="p-2 rounded-sm hover:bg-[#222223] transition-colors" href="https://github.com/ostadbun">
+              <Github/>
             </a>
-
-            <AnimatedThemeToggler className="cursor-pointer" />
+            <div className="hover:bg-[#222223] rounded-sm">
+            <AnimatedThemeToggler className="cursor-pointer p-2 rounded-sm transition-colors" />
+            </div>
           </div>
 
           {NavItems.map((v, i) => {
