@@ -21,7 +21,7 @@ interface NavItems {
 }
 const Navbar = () => {
   const NavItems: NavItems[] = [
-    { link: "/master", title: "اساتید" },
+    { link: "/professors", title: "اساتید" },
     { link: "/subjects", title: "دروس" },
   ];
 
@@ -29,7 +29,8 @@ const Navbar = () => {
     <>
       <nav className="hidden md:flex w-full h-[8dvh] z-10 mt-[4dvh] mb-[4dvh] items-center  justify-between px-12">
         <div className="flex justify-center items-center gap-4 ">
-          <h1 className="font-extrabold text-4xl">استادبان</h1>
+          <Link href={"/"}>
+          <h1 className="font-extrabold text-4xl">استادبان</h1></Link>
           <div className="">
             <Logo />
           </div>

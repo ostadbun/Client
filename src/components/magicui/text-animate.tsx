@@ -381,36 +381,32 @@ const TextAnimateBase = ({
       : { container: defaultContainerVariants, item: defaultItemVariants };
 
   return (
-    <AnimatePresence mode="popLayout">
-      <MotionComponent
-        variants={finalVariants.container as Variants}
-        initial="hidden"
-        whileInView={startOnView ? "show" : undefined}
-        animate={startOnView ? undefined : "show"}
-        exit="exit"
-        className={cn("whitespace-pre-wrap", className)}
-        viewport={{ once }}
-        aria-label={accessible ? children : undefined}
-        {...props}
+  <MotionComponent
+    variants={finalVariants.container}
+    initial="hidden"
+    animate="show"
+    className={cn("whitespace-pre-wrap", className)}
+    aria-label={accessible ? children : undefined}
+    {...props}
+  >
+    {accessible && <span className="sr-only">{children}</span>}
+    {segments.map((segment, i) => (
+      <motion.span
+        key={`${by}-${segment}-${i}`}
+        variants={finalVariants.item}
+        custom={i * staggerTimings[by]}
+        className={cn(
+          by === "line" ? "block" : "inline-block whitespace-pre",
+          segmentClassName
+        )}
+        aria-hidden={accessible ? true : undefined}
       >
-        {accessible && <span className="sr-only">{children}</span>}
-        {segments.map((segment, i) => (
-          <motion.span
-            key={`${by}-${segment}-${i}`}
-            variants={finalVariants.item}
-            custom={i * staggerTimings[by]}
-            className={cn(
-              by === "line" ? "block" : "inline-block whitespace-pre",
-              by === "character" && "",
-              segmentClassName,
-            )}
-            aria-hidden={accessible ? true : undefined}
-          >
-            {segment}
-          </motion.span>
-        ))}
-      </MotionComponent>
-    </AnimatePresence>
+        {segment}
+      </motion.span>
+    ))}
+  </MotionComponent>
+
+
   );
 };
 
