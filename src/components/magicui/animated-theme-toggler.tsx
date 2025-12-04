@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, SunDim } from "lucide-react";
+import { Moon, Sun, SunDim } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { flushSync } from "react-dom";
 import { cn } from "@/lib/utils";
@@ -22,7 +22,7 @@ export const AnimatedThemeToggler = ({ className }: Props) => {
 
     await document.startViewTransition(() => {
       flushSync(() => {
-        setTheme(theme === "dark" ? "light" : "dark");
+        setTheme(theme === "light" ? "dark" : "light");
       });
     }).ready;
   };
