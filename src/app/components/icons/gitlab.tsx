@@ -1,17 +1,6 @@
-import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
 
 export const Gitlab = () => {
 
-
-    const [theme, settheme] = useState<string>("")
-
-    const Coretheme = useTheme()
-
-    useEffect(() => {
-
-        if (Coretheme.theme) settheme(Coretheme.theme)
-    }, [Coretheme])
 
     return (
         <svg

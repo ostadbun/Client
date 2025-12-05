@@ -1,13 +1,14 @@
 "use client"
 
 import { Button } from "@/components/ui/button";
-import { th } from "framer-motion/client";
+import { div, th } from "framer-motion/client";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import Logo from "../components/logo";
 import { Google } from "../components/icons/google";
 import { Twitter } from "../components/icons/twitter";
 import { Gitlab } from "../components/icons/gitlab";
+import { Github } from "../components/icons/github";
 
 const Show = () => {
 
@@ -21,6 +22,42 @@ const Show = () => {
   }, [Coretheme])
 
 
+  const Provider = (provider: string): string => {
+    const url = `https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=${provider}&redirect_to=http://localhost:4932/accept/`
+    return url
+  }
+
+
+
+
+  const Providers: { icon: JSX.Element, title: string, target: string }[] = [
+
+    {
+      icon: <Google />,
+      title: "گوگل",
+      target: 'google'
+    },
+    {
+      icon: <Github />,
+      title: "گیت هاب",
+      target: 'github'
+    },
+    {
+      icon: <Twitter />,
+      title: "توییتر",
+      target: 'twitter'
+    },
+    {
+      icon: <Gitlab />,
+      title: "گیت لب",
+      target: 'gitlab'
+    }
+
+
+
+  ]
+
+
 
   return <>
 
@@ -29,34 +66,24 @@ const Show = () => {
       <div className="flex justify-center w-10/12 h-10/12 ">
         <div className="bg-red-600 flex justify-center flex-1">
           <div className="w-72 justify-center h-auto flex-wrap bg-black ">
-            <a className="w-full place-self-center" href='https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=google&redirect_to=http://localhost:4932/accept/'>
-              <Button className="w-full">
-
-                <Google />
-
-                ورود با گوگل
-              </Button>
-            </a>
-            <a className="w-full place-self-center" href="https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=twitter">
-              <Button className="w-full">
-                <Twitter />
-                ورود با توییتر
-
-              </Button>
-            </a>
-            <a className="w-full place-self-center" href="https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=github&redirect_to=http://localhost:4932/accept/">
-              <Button className="w-full">
 
 
-                ورود با گیت هاب
-              </Button>
-            </a>
-            <a className="w-full place-self-center" href="https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=gitlab">
-              <Button className="w-full">
-                <Gitlab />
-                ورود با گیت لب
-              </Button>
-            </a>
+
+            {Providers.map((a, b) => {
+              return (
+                <div key={b}>
+                  <a className="w-full place-self-center" href={Provider(a.target)}>
+                    <Button className="w-full">
+                      {a.icon}
+                      ورود با {a.title}
+                    </Button>
+                  </a>
+                </div>
+              )
+            })}
+
+
+
             {/* <hr className="mt-[1vh] border-gray-300" /> */}
             {/* <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, sunt? Laboriosam nisi veniam quisquam mollitia, ratione aliquam reiciendis. Doloremque porro sunt quibusdam quasi, perferendis ipsam iure repellendus perspiciatis incidunt hic.</h1> */}
           </div>
@@ -72,7 +99,7 @@ const Show = () => {
         </div>
       </div>
 
-    </div>
+    </div >
 
 
   </>;
