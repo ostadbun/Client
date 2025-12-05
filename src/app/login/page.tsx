@@ -34,22 +34,22 @@ const Show = () => {
 
     {
       icon: <Google />,
-      title: "گوگل",
+      title: "گـوگـــــل",
       target: 'google'
     },
     {
       icon: <Github />,
-      title: "گیت هاب",
+      title: "گیت‌هاب",
       target: 'github'
     },
     {
       icon: <Twitter />,
-      title: "توییتر",
+      title: "تـــــوییتر",
       target: 'twitter'
     },
     {
       icon: <Gitlab />,
-      title: "گیت لب",
+      title: "گـــیت‌لب",
       target: 'gitlab'
     }
 
@@ -63,43 +63,54 @@ const Show = () => {
 
 
     <div className="w-full h-dvh flex justify-center items-center">
-      <div className="flex justify-center w-10/12 h-10/12 ">
-        <div className="bg-red-600 flex justify-center flex-1">
-          <div className="w-72 justify-center h-auto flex-wrap bg-black ">
+      <div className="flex justify-center w-10/12 h-10/12 gap-4">
 
+        {/*  */}
+        <div className="  justify-center gap-y-12 flex flex-col items-center w-6/12">
+          <div className="w-72 flex flex-col gap-y-3">
+            {Providers.map((a, b) => (
+              <div key={b}>
+                <a className="w-full" href={Provider(a.target)}>
+                  <Button className="w-full ">
+                    <div className="flex justify-between items-center  gap-2 w-6/12">
 
-
-            {Providers.map((a, b) => {
-              return (
-                <div key={b}>
-                  <a className="w-full place-self-center" href={Provider(a.target)}>
-                    <Button className="w-full">
                       {a.icon}
                       ورود با {a.title}
-                    </Button>
-                  </a>
-                </div>
-              )
-            })}
-
-
-
-            {/* <hr className="mt-[1vh] border-gray-300" /> */}
-            {/* <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, sunt? Laboriosam nisi veniam quisquam mollitia, ratione aliquam reiciendis. Doloremque porro sunt quibusdam quasi, perferendis ipsam iure repellendus perspiciatis incidunt hic.</h1> */}
+                    </div>
+                  </Button>
+                </a>
+              </div>
+            ))}
           </div>
-        </div>
-        {/* <hr className="h-full w-1 border-gray-300" /> */}
-        <div className="  flex-1">
-          <div className="justify-center grid mt-[7vh]">
-            <Logo width={200} height={500} />
-            <h1 className="mt-[5vh]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, nisi, quia sit nam eaque, in quaerat praesentium veniam vero est unde fugit voluptatum rem eius dolorem nostrum ab ut? Magni.
-            </h1>
+
+
+
+          <div className="w-8/12">
+            <div className="w-full h-[.01rem] mb-6 bg-gray-300"></div>
+
+            <h3>
+              سیستم منبع باز است و هیج شخصی هیچ مسئولیتی در قبال هیچ چیزی ندارد.
+            </h3>
           </div>
+
         </div>
+
+
+        <div className="w-[.01rem] h-full bg-gray-300"></div>
+
+        {/*  */}
+        <div className="w-6/12 flex justify-center items-center flex-wrap flex-col gap-y-12">
+
+          <div className="opacity-85 w-full"><Logo size={6} /></div>
+          <div className="w-8/12 h-[.01rem] mb-6 bg-gray-300"></div>
+          <h1 className="w-8/12 ">
+            با ورود شما، اطلاعات داده شده به‌صورت امن ذخیره می‌شود و فقط برای بهبود تجربه‌ی کاربری استفاده خواهد شد.
+          </h1>
+
+        </div>
+
       </div>
-
-    </div >
+    </div>
 
 
   </>;
