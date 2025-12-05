@@ -28,13 +28,11 @@ const Navbar = () => {
   return (
     <>
       <nav className="hidden md:flex w-full h-[8dvh] z-10 mt-[4dvh] mb-[4dvh] items-center  justify-between px-12">
-        <div className="flex justify-center items-center gap-4 ">
-          <Link href={"/"}>
-          <h1 className="font-extrabold text-4xl">استادبان</h1></Link>
+          <Link href={"/"} className="flex justify-center items-center gap-4">
           <div className="">
-            <Logo />
+            <Logo/>
           </div>
-        </div>
+          <h1 className="font-extrabold text-4xl">استادبان</h1></Link>
 
         <div className="gap-5 flex">
           <div className="gap-4 flex items-center">

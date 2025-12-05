@@ -24,10 +24,10 @@ const Show = () => {
 
     <div className="w-full h-dvh flex justify-center items-center">
       <div className="flex justify-center w-10/12 h-10/12 ">
-        <div className="bg-red-500 flex-1">
-          <div className=" justify-center mt-[16vh] gap-7 items-center grid ">
-            <a href='https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=google&redirect_to=http://localhost:4932/accept/'>
-              <Button>
+        <div className="bg-red-600 flex justify-center flex-1">
+          <div className="w-72 justify-center h-auto flex-wrap bg-black ">
+            <a className="w-full place-self-center" href='https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=google&redirect_to=http://localhost:4932/accept/'>
+              <Button className="w-full">
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <defs>
@@ -112,23 +112,23 @@ const Show = () => {
                 ورود با گوگل
               </Button>
             </a>
-            <a href="https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=twitter">
-              <Button>
+            <a className="w-full place-self-center" href="https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=twitter">
+              <Button className="w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" textRendering="geometricPrecision" fill={theme == "light" ? "white" : "black"} imageRendering="optimizeQuality" fillRule="evenodd" clipRule="evenodd" viewBox="0 0 512 462.799"><path fillRule="nonzero" d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z" /></svg>
                 ورود با توییتر
 
               </Button>
             </a>
-            <a href="https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=github&redirect_to=http://localhost:4932/accept/">
-              <Button>
+            <a className="w-full place-self-center" href="https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=github&redirect_to=http://localhost:4932/accept/">
+              <Button className="w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="64" fill={theme == "light" ? "white" : "black"} height="64" shapeRendering="geometricPrecision" textRendering="geometricPrecision" imageRendering="optimizeQuality" fillRule="evenodd" clipRule="evenodd" viewBox="0 0 640 640"><path d="M319.988 7.973C143.293 7.973 0 151.242 0 327.96c0 141.392 91.678 261.298 218.826 303.63 16.004 2.964 21.886-6.957 21.886-15.414 0-7.63-.319-32.835-.449-59.552-89.032 19.359-107.8-37.772-107.8-37.772-14.552-36.993-35.529-46.831-35.529-46.831-29.032-19.879 2.209-19.442 2.209-19.442 32.126 2.245 49.04 32.954 49.04 32.954 28.56 48.922 74.883 34.76 93.131 26.598 2.882-20.681 11.15-34.807 20.315-42.803-71.08-8.067-145.797-35.516-145.797-158.14 0-34.926 12.52-63.485 32.965-85.88-3.33-8.078-14.291-40.606 3.083-84.674 0 0 26.87-8.61 88.029 32.8 25.512-7.075 52.878-10.642 80.056-10.76 27.2.118 54.614 3.673 80.162 10.76 61.076-41.386 87.922-32.8 87.922-32.8 17.398 44.08 6.485 76.631 3.154 84.675 20.516 22.394 32.93 50.953 32.93 85.879 0 122.907-74.883 149.93-146.117 157.856 11.481 9.921 21.733 29.398 21.733 59.233 0 42.792-.366 77.28-.366 87.804 0 8.516 5.764 18.473 21.992 15.354 127.076-42.354 218.637-162.274 218.637-303.582 0-176.695-143.269-319.988-320-319.988l-.023.107z" /></svg>
 
 
                 ورود با گیت هاب
               </Button>
             </a>
-            <a href="https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=gitlab">
-              <Button>
+            <a className="w-full place-self-center" href="https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=gitlab">
+              <Button className="w-full">
                 <svg
                   id="Layer_1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -180,18 +180,16 @@ const Show = () => {
                 ورود با گیت لب
               </Button>
             </a>
-            <hr className="mt-[1vh] border-gray-300" />
-            <h1>sdffsfsfsf</h1>
+            {/* <hr className="mt-[1vh] border-gray-300" /> */}
+            {/* <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, sunt? Laboriosam nisi veniam quisquam mollitia, ratione aliquam reiciendis. Doloremque porro sunt quibusdam quasi, perferendis ipsam iure repellendus perspiciatis incidunt hic.</h1> */}
           </div>
         </div>
-        <hr className="h-full w-1 bg-black" />
-        <div className="bg-blue-600  flex-1">
+        {/* <hr className="h-full w-1 border-gray-300" /> */}
+        <div className="  flex-1">
           <div className="justify-center grid mt-[7vh]">
-            <div className="bg-green-600 w-32 h-[55vh]">
-              <Logo/>
-            </div>
-            <h1>
-              jbjj
+              <Logo width={200} height={500}/>
+            <h1 className="mt-[5vh]">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, nisi, quia sit nam eaque, in quaerat praesentium veniam vero est unde fugit voluptatum rem eius dolorem nostrum ab ut? Magni.
             </h1>
           </div>
         </div>
