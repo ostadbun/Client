@@ -115,10 +115,4 @@ const Show = () => {
 
   </>;
 };
-
 export default Show;
-// 
-
-
-
-// 123SMDuwh@@#@Q!
