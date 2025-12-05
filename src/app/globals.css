@@ -191,4 +191,12 @@ html {
     mask-position: center;
     mask-size: cover;
 }
-
+/* ----- */
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+#my-logo {
+  width: 120px;
+  fill: red;
+}

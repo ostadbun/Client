@@ -25,7 +25,7 @@ const Show = () => {
     <div className="w-full h-dvh flex justify-center items-center">
       <div className="flex justify-center w-10/12 h-10/12 ">
         <div className="bg-red-500 flex-1">
-          <div className=" justify-center h-full items-center grid ">
+          <div className=" justify-center mt-[16vh] gap-7 items-center grid ">
             <a href='https://jpjukqmcfgpwtlaehajo.supabase.co/auth/v1/authorize?provider=google&redirect_to=http://localhost:4932/accept/'>
               <Button>
 
@@ -180,14 +180,20 @@ const Show = () => {
                 ورود با گیت لب
               </Button>
             </a>
+            <hr className="mt-[1vh] border-gray-300" />
+            <h1>sdffsfsfsf</h1>
           </div>
         </div>
-        <div className="h-full w-1 bg-black"></div>
-        <div className="bg-blue-600 flex-1">
-          <Logo />
-          <h1>
-            jbjj
-          </h1>
+        <hr className="h-full w-1 bg-black" />
+        <div className="bg-blue-600  flex-1">
+          <div className="justify-center grid mt-[7vh]">
+            <div className="bg-green-600 w-32 h-[55vh]">
+              <Logo/>
+            </div>
+            <h1>
+              jbjj
+            </h1>
+          </div>
         </div>
       </div>
 

@@ -9,7 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 import { Github, Menu } from "lucide-react";
 import Link from "next/link";
