@@ -9,6 +9,7 @@ import { Google } from "../components/icons/google";
 import { Twitter } from "../components/icons/twitter";
 import { Gitlab } from "../components/icons/gitlab";
 import { Github } from "../components/icons/github";
+import Link from "next/link";
 
 const Show = () => {
 
@@ -108,7 +109,11 @@ const Show = () => {
         {/*  */}
         <div className="w-6/12 flex justify-center items-center flex-wrap flex-col gap-y-12">
 
-          <div className="opacity-85 w-full"><Logo size={6} /></div>
+          <div className="opacity-85 w-full">
+            <Link href="/">
+            <Logo size={6} />
+            </Link>
+            </div>
           <div className="w-8/12 h-[.01rem] bg-gray-300"></div>
           <h1 className="w-8/12 ">
             با ورود شما، اطلاعات داده شده به‌صورت امن ذخیره می‌شود و فقط برای بهبود تجربه‌ی کاربری استفاده خواهد شد.

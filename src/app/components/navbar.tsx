@@ -29,7 +29,7 @@ const Navbar = () => {
     <>
       <nav className="hidden md:flex w-full h-[8dvh] z-10 mt-[4dvh] mb-[4dvh] items-center  justify-between px-12">
           <Link href={"/"} className="flex justify-center items-center gap-4">
-          <div className="">
+          <div>
             <Logo/>
           </div>
           <h1 className="font-extrabold text-4xl">استادبان</h1></Link>
