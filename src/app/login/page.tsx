@@ -65,17 +65,11 @@ const Show = () => {
 
     <div className="w-full h-dvh flex justify-center items-center">
       <div
-        style={{
-          boxShadow:
-            theme === "dark"
-              ? "0 4px 12px rgba(255, 255, 255, 0.18)"
-              : "0 4px 14px rgba(0, 0, 0, 0.12)"        
-        }}
-        className="flex border-[0.5px] border-gray-300 dark:border-gray-800 rounded-xl justify-center w-10/12 h-10/12 gap-4"
+        className="flex border-[0.5px] border-gray-600 dark:border-gray-600 rounded-xl justify-center w-10/12 h-10/12 gap-4"
       >
         {/*  */}
         <div className="  justify-center gap-y-12 flex flex-col items-center w-6/12">
-          <div className="w-72 flex flex-col gap-y-3">
+          <div className="w-72 mt-[8.27rem] flex flex-col gap-y-3 ">
             {Providers.map((a, b) => (
               <div key={b}>
                 <a className="w-full " href={Provider(a.target)}>
@@ -93,7 +87,7 @@ const Show = () => {
 
 
 
-          <div className="w-8/12">
+          <div className="w-8/12 ">
             <div className="w-full h-[.01rem] mb-6 bg-gray-400"></div>
 
             <h3>
@@ -109,12 +103,14 @@ const Show = () => {
         {/*  */}
         <div className="w-6/12 flex justify-center items-center flex-wrap flex-col gap-y-12">
 
-            <Link href="/">
-          <div className="opacity-85 w-full">
-            <Logo size={6} />
-            </div>
+          <div className="opacity-85 w-full relative ">
+            <Link href="/" >
+              <Logo size={6}  />
             </Link>
-          <div className="w-8/12 h-[.01rem] bg-gray-300"></div>
+            <p className="font-extrabold text-center text-4xl dark:text-gray-200 absolute translate-y-5 w-full text-gray-700" >
+              استادبان</p>
+          </div>
+          <div className="w-8/12 h-[.01rem] bg-gray-400"></div>
           <h1 className="w-8/12 ">
             با ورود شما، اطلاعات داده شده به‌صورت امن ذخیره می‌شود و فقط برای بهبود تجربه‌ی کاربری استفاده خواهد شد.
           </h1>
