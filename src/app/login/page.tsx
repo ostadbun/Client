@@ -78,7 +78,7 @@ const Show = () => {
           <div className="w-72 flex flex-col gap-y-3">
             {Providers.map((a, b) => (
               <div key={b}>
-                <a className="w-full" href={Provider(a.target)}>
+                <a className="w-full " href={Provider(a.target)}>
                   <Button className="w-full ">
                     <div className="flex justify-between items-center  gap-2 w-6/12">
 
@@ -109,11 +109,11 @@ const Show = () => {
         {/*  */}
         <div className="w-6/12 flex justify-center items-center flex-wrap flex-col gap-y-12">
 
-          <div className="opacity-85 w-full">
             <Link href="/">
+          <div className="opacity-85 w-full">
             <Logo size={6} />
-            </Link>
             </div>
+            </Link>
           <div className="w-8/12 h-[.01rem] bg-gray-300"></div>
           <h1 className="w-8/12 ">
             با ورود شما، اطلاعات داده شده به‌صورت امن ذخیره می‌شود و فقط برای بهبود تجربه‌ی کاربری استفاده خواهد شد.
