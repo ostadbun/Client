@@ -64,7 +64,7 @@ const Show = () => {
 
 
     <div className="w-full h-dvh flex justify-center items-center">
-      <div className="flex border-[0.5px]  dark:border-gray-600 rounded-xl justify-center w-10/12 h-10/12 gap-4"
+      <div className="flex border-[0.5px] dark:border-gray-600 rounded-xl justify-center w-10/12 h-10/12 gap-4"
       >
         {/*  */}
         <div className="  justify-center gap-y-12 flex flex-col items-center w-6/12">
