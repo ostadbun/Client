@@ -64,8 +64,7 @@ const Show = () => {
 
 
     <div className="w-full h-dvh flex justify-center items-center">
-      <div
-        className="flex border-[0.5px] border-gray-600 dark:border-gray-600 rounded-xl justify-center w-10/12 h-10/12 gap-4"
+      <div className="flex border-[0.5px]  dark:border-gray-600 rounded-xl justify-center w-10/12 h-10/12 gap-4"
       >
         {/*  */}
         <div className="  justify-center gap-y-12 flex flex-col items-center w-6/12">
@@ -105,7 +104,7 @@ const Show = () => {
 
           <div className="opacity-85 w-full relative ">
             <Link href="/" >
-              <Logo size={6}  />
+              <Logo size={6} />
             </Link>
             <p className="font-extrabold text-center text-4xl dark:text-gray-200 absolute translate-y-5 w-full text-gray-700" >
               استادبان</p>
@@ -118,7 +117,7 @@ const Show = () => {
         </div>
 
       </div>
-    </div>
+    </div >
 
 
   </>;

@@ -21,8 +21,9 @@ interface NavItems {
 }
 const Navbar = () => {
   const NavItems: NavItems[] = [
+    {link:"/universities",title:"دانشگاه ها"},
     { link: "/professors", title: "اساتید" },
-    { link: "/subjects", title: "دروس" },
+    { link: "/subjects", title: "دروس" }
   ];
 
   return (
@@ -53,6 +54,7 @@ const Navbar = () => {
               </Link>
               )
           })}
+          
 
           <Link href={"login"}>
             <Button variant={"secondary"} >
