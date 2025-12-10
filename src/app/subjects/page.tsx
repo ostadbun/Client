@@ -1,9 +1,10 @@
-import { div } from "framer-motion/client";
+import { DialogDemo } from "@/components/ui/DialogDemo";
+
 
 const subjects = () => {
     return ( 
-        <div>
-            hi subjects
+        <div className="flex justify-center">
+            <DialogDemo/>
         </div>
      );
 }
