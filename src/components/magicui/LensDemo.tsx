@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,7 +12,7 @@ type Props = {
 
 export function LensDemo({ name, field, image, bio }: Props) {
   return (
-    <Card className="relative max-w-md shadow-none">
+    <Card className="relative shadow-none">
       <CardHeader>
         <Lens
           zoomFactor={2}
