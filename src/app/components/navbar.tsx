@@ -84,16 +84,19 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="block md:hidden">
+      <div className="flex justify-between md:hidden">
+
+        <div className=" justify-center flex items-center m-4 gap-4 ">
+          <Logo />
+          <Link href={"/"}>
+            <p className="font-extrabold ml-10 text-3xl">استادبان</p>
+
+          </Link>
+        </div>
         <Sheet>
           <SheetTrigger>
-            <Menu />
+            <Menu className="ml-5" />
           </SheetTrigger>
-
-          <div className="w-full justify-center flex items-center gap-5 mt-4">
-            <Logo />
-            <p className="font-extrabold text-3xl">استادبان</p>
-          </div>
 
           <SheetContent>
             <SheetHeader>
