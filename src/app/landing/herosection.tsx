@@ -1,6 +1,5 @@
 import { TextAnimate } from "@/components/magicui/text-animate";
 
-import DetailAnimation from "./DetailAnimation";
 
 const HeroSection = () => {
   return (
@@ -28,7 +27,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-        <DetailAnimation />
+        
 
     </>
   );
