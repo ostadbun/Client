@@ -1,11 +1,17 @@
+import CourseInfo from "./CourseInfo";
+import RelevantCourses from "./RelevantCourses";
+import RelevantProfessors from "./RelevantProfessors";
+import Votes from "./Votes";
 
-
-const subjects = () => {
+const Subjects = () => {
     return ( 
-        <div className="flex justify-center">
-            fghnfgh
+        <div className="">
+            <CourseInfo/>
+            <RelevantProfessors/>
+            <RelevantCourses/>
+            <Votes/>
         </div>
      );
 }
 
-export default subjects;
+export default Subjects;
