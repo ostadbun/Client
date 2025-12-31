@@ -5,11 +5,11 @@ import Votes from "./Votes";
 
 const Subjects = () => {
     return ( 
-        <div className="">
+        <div className="flex justify-center">
             <CourseInfo/>
+            <Votes/>
             <RelevantProfessors/>
             <RelevantCourses/>
-            <Votes/>
         </div>
      );
 }
