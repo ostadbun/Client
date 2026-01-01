@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { number } from 'framer-motion';
 import { Car } from 'lucide-react';
 import React, { useState } from 'react';
+import Votes from './Votes';
 
 const professors = () => {
     type Professor = {
@@ -31,20 +32,8 @@ const professors = () => {
         }
     ])
     return (
-        <div className='place-self-center'>
-            <h1 className='text-4xl place-self-center'>جستوجوی اساتید</h1>
-            <Input className='mt-[2rem]' type="email" placeholder="professors" />
-            <div className='flex justify-center gap-6 mt-20 place-items-center'>
-                {professors.map((c) => {
-                    return <LensDemo
-                        key={c.id}
-                        name={c.name}
-                        field={c.field}
-                        image={c.image}
-                        bio={c.bio}
-                    />
-                })}
-            </div>
+        <div className='w-9/12 place-self-center'>
+            <Votes/>
         </div>
     );
 }
