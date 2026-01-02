@@ -3,7 +3,7 @@ import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "./components/navbar";
-import LayoutClient from "./ LayoutClient";
+import LayoutClient from "./LayoutClient";
 
 const vazirmatn = Vazirmatn({
   variable: "--font-vazirmatn",
