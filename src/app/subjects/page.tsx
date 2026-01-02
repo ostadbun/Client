@@ -5,7 +5,7 @@ import Votes from "../professors/Votes";
 
 const Subjects = () => {
     return ( 
-        <div className="flex justify-center">
+        <div className="flex flex-wrap justify-center gap-x-20 gap-y-14">
             <CourseInfo/>
             <RelevantProfessors/>
             <RelevantCourses/>
