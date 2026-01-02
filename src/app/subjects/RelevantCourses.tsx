@@ -47,9 +47,9 @@ const RelevantCourses = () => {
                     >
                   {prof.Status}
                 </td>
-                {/* <td className="border border-gray-700 p-2 cursor-pointer">
+                <td className="border border-gray-700 p-2 cursor-pointer">
                  {prof.TypeofSubject}
-                </td> */}
+                </td>
               </tr>
             ))}
           </tbody>
