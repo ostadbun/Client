@@ -20,7 +20,7 @@ const RelevantCourses = () => {
       />
 
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-center text-sm text-white">
+        <table className="w-full mb-[2vh] border-collapse text-center text-sm text-white">
 
           <thead className="bg-[#1c1c1e]">
             <tr>
