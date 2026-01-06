@@ -5,7 +5,7 @@ import Votes from "../professors/Votes";
 
 const Subjects = () => {
     return ( 
-        <div className="flex flex-wrap justify-center gap-x-20 gap-y-14">
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-14 lg:px-0 md:gap-x-20">
             <CourseInfo/>
             <RelevantProfessors/>
             <RelevantCourses/>
@@ -14,3 +14,7 @@ const Subjects = () => {
 }
 
 export default Subjects;
+
+
+
+

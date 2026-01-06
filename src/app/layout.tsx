@@ -1,8 +1,8 @@
+
 import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Navbar from "./components/navbar";
 import LayoutClient from "./LayoutClient";
 
 const vazirmatn = Vazirmatn({
