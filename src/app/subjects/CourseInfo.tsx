@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 const CourseInfo = () => {
     return (
         <div className='pt-5'>
-            <div className='w-auto h-72 shadow-xl/30 bg-[#131314] rounded-lg'>
+            <div className='w-auto h-72 shadow-xl/30 bg-[#181818] border border-gray-500
+ rounded-lg'>
                 <h1 className='text-4xl pr-8 pt-5 text-white'>
                     نظریه زبان و ماشین ها
                 </h1>

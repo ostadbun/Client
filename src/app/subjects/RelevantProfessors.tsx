@@ -8,7 +8,8 @@ const RelevantProfessors = () => {
         { id: 3, name: "دکتر محمدی", score: 19.1 },
     ];
     return (
-        <div className="w-5/12 bg-[#131314] shadow-xl/30 rounded-lg p-4">
+        <div className="w-5/12 bg-[#181818] border border-gray-500
+ shadow-xl/30 rounded-lg p-4">
 
             <h1 className="text-lg font-bold mb-3 text-white">
                 اساتید مربوطه
@@ -46,14 +47,14 @@ const RelevantProfessors = () => {
                                 <td className="border border-gray-700 p-2">
                                     {prof.score}
                                 </td>
-                                
-                                    <td className="border border-gray-700 p-2 text-blue-400 hover:underline cursor-pointer">
-                                        <Link href={"/professors"}>
-                                        
+
+                                <td className="border border-gray-700 p-2 text-blue-400 hover:underline cursor-pointer">
+                                    <Link href={"/professors"}>
+
                                         مشاهده
-                                        </Link>
-                                    </td>
-                               
+                                    </Link>
+                                </td>
+
                             </tr>
                         ))}
                     </tbody>
