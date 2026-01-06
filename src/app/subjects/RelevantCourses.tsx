@@ -1,16 +1,17 @@
 import React from 'react';
 
 const RelevantCourses = () => {
-    const subjects=[
-        {id:1,SubjectName:"مبانی کامپیوتر",Status:"پاس نشده",TypeofSubject:"همنیاز"},
-        {id:2,SubjectName:"مبانی کامپیوتر",Status:"پاس شده",TypeofSubject:"پیشنیاز"},
-        {id:3,SubjectName:"مبانی کامپیوتر",Status:"پاس نشده",TypeofSubject:"پیشنیاز"}
-    ]
-    return (
-    <div className="w-5/12 bg-[#131314] shadow-xl/30 rounded-lg p-4">
-      
+  const subjects = [
+    { id: 1, SubjectName: "مبانی کامپیوتر", Status: "پاس نشده", TypeofSubject: "همنیاز" },
+    { id: 2, SubjectName: "مبانی کامپیوتر", Status: "پاس شده", TypeofSubject: "پیشنیاز" },
+    { id: 3, SubjectName: "مبانی کامپیوتر", Status: "پاس نشده", TypeofSubject: "پیشنیاز" }
+  ]
+  return (
+    <div className="w-5/12 border border-gray-500 bg-[#181818]
+ shadow-xl/30 rounded-lg p-4">
+
       <h1 className="text-lg font-bold mb-3 text-white">
-       جدول روابط دروس
+        جدول روابط دروس
       </h1>
 
       <input
@@ -20,7 +21,7 @@ const RelevantCourses = () => {
 
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-center text-sm text-white">
-          
+
           <thead className="bg-[#1c1c1e]">
             <tr>
               <th className="border border-gray-700 p-2 w-[10%]">ردیف</th>
@@ -43,12 +44,12 @@ const RelevantCourses = () => {
                   {prof.SubjectName}
                 </td>
                 <td className={`border border-gray-700 p-2
-                 ${prof.Status==="پاس شده" ? "text-green-500":"text-red-500"}`}
-                    >
+                 ${prof.Status === "پاس شده" ? "text-green-500" : "text-red-500"}`}
+                >
                   {prof.Status}
                 </td>
                 <td className="border border-gray-700 p-2 cursor-pointer">
-                 {prof.TypeofSubject}
+                  {prof.TypeofSubject}
                 </td>
               </tr>
             ))}
@@ -57,8 +58,8 @@ const RelevantCourses = () => {
         </table>
       </div>
 
-    </div>    
-    );
+    </div>
+  );
 }
 
 export default RelevantCourses;
