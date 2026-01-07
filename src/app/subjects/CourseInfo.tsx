@@ -31,15 +31,15 @@ const CourseInfo = () => {
                         سخت
                     </button>
 
-                    <Button className="bg-white text-black whitespace-nowrap">
+                    <Button className="bg-white hover:opacity-75 text-black whitespace-nowrap">
                         تخصصی
                     </Button>
 
-                    <Button className="bg-white text-black whitespace-nowrap">
+                    <Button className="bg-white hover:opacity-75 text-black whitespace-nowrap">
                         ترم ۴
                     </Button>
 
-                    <Button className="bg-white text-black whitespace-nowrap">
+                    <Button className="bg-white hover:opacity-75 text-black whitespace-nowrap">
                         ۳ واحد
                     </Button>
 
