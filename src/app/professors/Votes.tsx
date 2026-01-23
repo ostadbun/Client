@@ -10,7 +10,7 @@ const Votes = () => {
     ]);
 
     return (
-        <div className='w-4/12 h-[420px] shadow-xl/30 bg-[#131314] p-5 rounded-lg'>
+        <div className='w-4/12 h-[420px] border border-gray-500 shadow-xl/30 bg-[#131314] p-5 rounded-lg'>
             <h1 className='text-3xl text-white text-center mb-5'>آرا</h1>
 
             <table className='w-full text-right text-white border-collapse'>
@@ -24,7 +24,7 @@ const Votes = () => {
                 </thead>
                 <tbody>
                     {votes.map((item) => (
-                        <tr key={item.id}className='border-b border-white/10 hover:bg-white/5 transition'>
+                        <tr key={item.id} className='border-b border-white/10 hover:bg-white/5 transition'>
                             <td className='py-2'>{item.characteristic}</td>
                             <td className='py-2 text-yellow-300'>{item.YourVote}</td>
                             <td className='py-2 text-green-300 pr-4'>{item.vote}</td>
