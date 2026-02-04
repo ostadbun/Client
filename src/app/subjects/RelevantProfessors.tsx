@@ -19,6 +19,7 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { div } from "framer-motion/client";
+import { DataTablePagination } from "@/components/ui/Pagination";
 
 
 interface DataTableProps<TData, TValue> {
@@ -40,10 +41,9 @@ export function RelevantProfessors<TData, TValue>({ columns, data }: DataTablePr
 
 
     return (
-
-
+        
+        
         <div className="overflow-hidden rounded-md border">
-
 
             <Table>
                 <TableHeader>
@@ -68,11 +68,11 @@ export function RelevantProfessors<TData, TValue>({ columns, data }: DataTablePr
                     {table.getRowModel().rows?.length ? (
                         table.getRowModel().rows.map((row) => (
                             <TableRow
-                                key={row.id}
-                                data-state={row.getIsSelected() && "selected"}
+                            key={row.id}
+                            data-state={row.getIsSelected() && "selected"}
                             >
                                 {row.getVisibleCells().map((cell) => (
-
+                                    
                                     <TableCell key={cell.id}>
                                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                     </TableCell>
@@ -89,6 +89,7 @@ export function RelevantProfessors<TData, TValue>({ columns, data }: DataTablePr
                     )}
                 </TableBody>
             </Table>
+            <DataTablePagination table={table}/>
         </div>
 
     );
