@@ -1,65 +1,97 @@
-import React from 'react';
+"use client"
 
-const RelevantCourses = () => {
-  const subjects = [
-    { id: 1, SubjectName: "مبانی کامپیوتر", Status: "پاس نشده", TypeofSubject: "همنیاز" },
-    { id: 2, SubjectName: "مبانی کامپیوتر", Status: "پاس شده", TypeofSubject: "پیشنیاز" },
-    { id: 3, SubjectName: "مبانی کامپیوتر", Status: "پاس نشده", TypeofSubject: "پیشنیاز" }
-  ]
-  return (
-    <div className="w-5/12 border border-gray-500 bg-[#181818]
- shadow-xl/30 rounded-lg p-4">
+import React from "react";
+import Link from "next/link";
 
-      <h1 className="text-lg font-bold mb-3 text-white">
-        جدول روابط دروس
-      </h1>
+import {
+    ColumnDef,
+    flexRender,
+    getCoreRowModel,
+    useReactTable,
+} from "@tanstack/react-table"
 
-      <input
-        className="w-full mb-4 p-2 rounded-md bg-[#1c1c1e] text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-500"
-        placeholder="جستجو کنید"
-      />
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
+import { div } from "framer-motion/client";
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-center mb-[1vh] text-sm text-white">
 
-          <thead className="bg-[#1c1c1e]">
-            <tr>
-              <th className="border border-gray-700 p-2 w-[10%]">ردیف</th>
-              <th className="border border-gray-700 p-2 w-[40%]">نام درس</th>
-              <th className="border border-gray-700 p-2 w-[20%]">وضعیت</th>
-              <th className="border border-gray-700 p-2 w-[30%]">نوع</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {subjects.map((prof) => (
-              <tr
-                key={prof.id}
-                className="hover:bg-[#1f1f22] transition"
-              >
-                <td className="border border-gray-700 p-2">
-                  {prof.id}
-                </td>
-                <td className="border border-gray-700 p-2">
-                  {prof.SubjectName}
-                </td>
-                <td className={`border border-gray-700 p-2
-                 ${prof.Status === "پاس شده" ? "text-green-500" : "text-red-500"}`}
-                >
-                  {prof.Status}
-                </td>
-                <td className="border border-gray-700 p-2 cursor-pointer">
-                  {prof.TypeofSubject}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-
-        </table>
-      </div>
-
-    </div>
-  );
+interface DataTableProps<TData, TValue> {
+    columns: ColumnDef<TData, TValue>[]
+    data: TData[]
 }
+
+
+export function RelevantCourses<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
+
+
+
+    const table = useReactTable({
+        data,
+        columns,
+        getCoreRowModel: getCoreRowModel(),
+    })
+
+
+
+    return (
+
+
+        <div className="overflow-hidden rounded-md border">
+
+
+            <Table>
+                <TableHeader>
+                    {table.getHeaderGroups().map((headerGroup) => (
+                        <TableRow key={headerGroup.id}>
+                            {headerGroup.headers.map((header) => {
+                                return (
+                                    <TableHead key={header.id}>
+                                        {header.isPlaceholder
+                                            ? null
+                                            : flexRender(
+                                                header.column.columnDef.header,
+                                                header.getContext()
+                                            )}
+                                    </TableHead>
+                                )
+                            })}
+                        </TableRow>
+                    ))}
+                </TableHeader>
+                <TableBody>
+                    {table.getRowModel().rows?.length ? (
+                        table.getRowModel().rows.map((row) => (
+                            <TableRow
+                                key={row.id}
+                                data-state={row.getIsSelected() && "selected"}
+                            >
+                                {row.getVisibleCells().map((cell) => (
+
+                                    <TableCell key={cell.id}>
+                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                    </TableCell>
+                                ))}
+
+                            </TableRow>
+                        ))
+                    ) : (
+                        <TableRow>
+                            <TableCell colSpan={columns.length} className="h-24 text-center">
+                                No results.
+                            </TableCell>
+                        </TableRow>
+                    )}
+                </TableBody>
+            </Table>
+        </div>
+
+    );
+};
 
 export default RelevantCourses;
