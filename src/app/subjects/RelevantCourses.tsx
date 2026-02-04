@@ -18,7 +18,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { div } from "framer-motion/client";
+import { DataTablePagination } from "@/components/ui/Pagination";
 
 
 interface DataTableProps<TData, TValue> {
@@ -89,6 +89,8 @@ export function RelevantCourses<TData, TValue>({ columns, data }: DataTableProps
                     )}
                 </TableBody>
             </Table>
+                        <DataTablePagination table={table}/>
+            
         </div>
 
     );
