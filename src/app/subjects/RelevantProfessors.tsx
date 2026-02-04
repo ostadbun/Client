@@ -71,11 +71,6 @@ export function RelevantProfessors<TData, TValue>({ columns, data }: DataTablePr
                                 key={row.id}
                                 data-state={row.getIsSelected() && "selected"}
                             >
-
-
-
-
-
                                 {row.getVisibleCells().map((cell) => (
 
                                     <TableCell key={cell.id}>

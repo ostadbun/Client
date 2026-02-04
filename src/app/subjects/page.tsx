@@ -51,11 +51,12 @@ const Subjects = () => {
             href: "d", id: 4, name: "احسانی", rating: 25550
         },
     ]
+ 
     return (
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-14 lg:px-0 md:gap-x-16">
             <CourseInfo />
             <RelevantProfessors columns={columns} data={data} />
-            <RelevantCourses />
+            <RelevantCourses columns={columns} data={data}/>
         </div>
     );
 }
