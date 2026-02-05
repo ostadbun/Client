@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react";
-import Link from "next/link";
 
 import {
     ColumnDef,
@@ -18,9 +16,8 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { div } from "framer-motion/client";
-import { DataTablePagination } from "@/components/ui/Pagination";
-
+import { Button } from "@/components/ui/button";
+import { DataTable } from "./data-table";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
@@ -41,10 +38,9 @@ export function RelevantProfessors<TData, TValue>({ columns, data }: DataTablePr
 
 
     return (
-        
-        
-        <div className="overflow-hidden rounded-md border">
+    <div dir="rtl" className="overflow-hidden rounded-md border">
 
+        <DataTable columns={columns} data={data} />
             <Table>
                 <TableHeader>
                     {table.getHeaderGroups().map((headerGroup) => (
@@ -89,8 +85,29 @@ export function RelevantProfessors<TData, TValue>({ columns, data }: DataTablePr
                     )}
                 </TableBody>
             </Table>
-            <DataTablePagination table={table}/>
-        </div>
+            
+        <div className="flex items-center justify-end space-x-2 py-4">
+            
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          Previous
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          Next
+        </Button>
+      </div>
+
+    </div>
+        
 
     );
 };
