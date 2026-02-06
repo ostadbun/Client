@@ -38,7 +38,7 @@ export function DataTable({ columns, data }: any) {
           placeholder="جستجو بر اساس ایمیل..."
           value={filterValue}
           onChange={(e) => setFilterValue(e.target.value)}
-          className="max-w-xs"
+          className="min-w-xs "
         />
       </div>
     </div>
