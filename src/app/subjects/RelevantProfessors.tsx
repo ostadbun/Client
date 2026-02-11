@@ -86,7 +86,7 @@ export function RelevantProfessors<TData, TValue>({ columns, data }: DataTablePr
                 </TableBody>
             </Table>
             
-        <div className="flex items-center justify-end space-x-2 py-4">
+        <div className="flex items-center justify-end space-x-2 pb-4 pl-3">
             
         <Button
           variant="outline"

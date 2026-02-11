@@ -8,13 +8,6 @@ import {
 } from "@tanstack/react-table"
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableCell,
-} from "@/components/ui/table"
 
 export function DataTable({ columns, data }: any) {
   const [filterValue, setFilterValue] = useState("")
@@ -31,16 +24,15 @@ export function DataTable({ columns, data }: any) {
   })
 
   return (
-    <div>
-      {/* 🧩 فیلتر بر اساس ایمیل */}
-      <div className="mb-4">
+    
+      <div className="mb-4 p-3">
         <Input
           placeholder="جستجو بر اساس ایمیل..."
           value={filterValue}
           onChange={(e) => setFilterValue(e.target.value)}
-          className="min-w-xs "
+          className="h-1/3"
         />
       </div>
-    </div>
+    
   )
 }
