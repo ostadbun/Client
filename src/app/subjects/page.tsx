@@ -57,6 +57,7 @@ const Subjects = () => {
             <CourseInfo/>
         <div className="">
             <RelevantCourses columns={columns} data={data}/>
+            <br />
             <RelevantProfessors columns={columns} data={data} />
 
         </div>

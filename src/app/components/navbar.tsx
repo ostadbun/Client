@@ -77,10 +77,6 @@ const Navbar = () => {
               </div>
             );
           })}
-
-          <Link href={"/login"}>
-            <Button variant={"secondary"}>ورود</Button>
-          </Link>
         </div>
       </nav>
 
