@@ -85,6 +85,9 @@ export function RelevantProfessors<TData, TValue>({ columns, data }: DataTablePr
                     )}
                 </TableBody>
             </Table>
+            <div className=" text-sm text-muted-foreground">
+                 {table.getFilteredSelectedRowModel().rows.length} of{" "} {table.getFilteredRowModel().rows.length} row(s) selected. 
+            </div>
             
         <div className="flex items-center justify-end space-x-2 pb-4 pl-3">
             

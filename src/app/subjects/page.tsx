@@ -53,7 +53,7 @@ const Subjects = () => {
     ]
  
     return (
-        <div className="flex flex-wrap place-items-center justify-center gap-x-4 gap-y-14 lg:px-0 md:gap-x-16">
+        <div className="flex flex-wrap  justify-center gap-x-4 gap-y-14 lg:px-0 md:gap-x-16">
             <CourseInfo/>
         <div className="">
             <RelevantCourses columns={columns} data={data}/>
