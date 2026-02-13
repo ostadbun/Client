@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import LayoutClient from "./LayoutClient";
+import { DirectionProvider } from "@base-ui/react";
 
 const arad = localFont({
   src: "../../public/fonts/arad/AradVF.woff2",
@@ -18,20 +19,25 @@ export default function RootLayout({
     <html lang="fa" dir="rtl" suppressHydrationWarning>
       <body className={`${arad.className} antialiased`}>
 
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
 
 
+
+
+
+        <DirectionProvider direction="rtl">
+
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            disableTransitionOnChange>
             <LayoutClient>{children}</LayoutClient>
+          </ThemeProvider>
 
 
 
+        </DirectionProvider>
 
-        </ThemeProvider>
       </body>
     </html>
   );
