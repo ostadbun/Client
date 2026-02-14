@@ -25,35 +25,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-
-
-
-
-
-
       <body
-        className={`${arad.className} antialiased`}
-      >
-
+        className={`${arad.className} antialiased`}>
         <DirectionProvider direction="rtl">
-
-
           <SidebarProvider>
             <AppSidebar />
             <main>
               <SidebarTrigger />
               {children}
             </main>
-
-
-
           </SidebarProvider>
-
-
         </DirectionProvider>
-
-
-
       </body>
     </html>
   );
