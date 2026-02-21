@@ -136,7 +136,7 @@ export function AppSidebar() {
                   />
                 </SidebarMenuButton>
 
-                {openMenu === "docs" && (
+                {openMenu === "Documentation" && (
                   <div className="mt-1 mr-6 space-y-1 text-sm text-muted-foreground">
                     <p className="cursor-pointer hover:text-foreground">
                       API Reference
