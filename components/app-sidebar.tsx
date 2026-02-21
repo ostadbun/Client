@@ -6,6 +6,7 @@ import {
   SidebarHeader,
   SidebarMenuButton,
 } from "@/components/ui/sidebar"
+import Link from "next/link"
 
 export function AppSidebar() {
   return (
@@ -14,22 +15,26 @@ export function AppSidebar() {
 
 
       <SidebarContent >
-      <SidebarMenuButton isActive>
-        <a href="#">Home</a>
-      </SidebarMenuButton>
+
+
+
+
 
       <SidebarMenuButton isActive>
-        <a href="#">Home</a>
+        <Link href="/subjects">
+            subjects
+        </Link>
       </SidebarMenuButton>
-
       <SidebarMenuButton isActive>
-        <a href="#">Home</a>
+        <Link href="/professors">
+            professors
+        </Link>
       </SidebarMenuButton>
-
       <SidebarMenuButton isActive>
-        <a href="#">Home</a>
+        <Link href="/students">
+            students
+        </Link>
       </SidebarMenuButton>
-
       
         <SidebarGroup />
 
