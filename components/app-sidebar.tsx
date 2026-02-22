@@ -71,12 +71,6 @@ export function AppSidebar() {
 
                 {openMenu === "playground" && (
                   <div className="mt-1 mr-6 space-y-1 text-sm text-muted-foreground">
- 
-                    <Link href="/students">
-                    <p className="cursor-pointer hover:text-foreground">
-                      students
-                    </p>
-                    </Link>
                     <Link href="/professors">
                     <p className="cursor-pointer hover:text-foreground">
                       professors
