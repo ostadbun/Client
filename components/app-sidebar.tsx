@@ -1,213 +1,141 @@
 "use client"
 
-import { useState } from "react"
+import * as React from "react"
 
+import { NavMain } from "@/components/nav-main"
+import { NavProjects } from "@/components/nav-projects"
+import { NavUser } from "@/components/nav-user"
+import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,
   SidebarContent,
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
   SidebarFooter,
   SidebarHeader,
+  SidebarRail,
 } from "@/components/ui/sidebar"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { LayoutBottomIcon, AudioWave01Icon, CommandIcon, ComputerTerminalIcon, RoboticIcon, BookOpen02Icon, Settings05Icon, CropIcon, PieChartIcon, MapsIcon } from "@hugeicons/core-free-icons"
+import { OSBN } from "@/iconjsx/logo"
 
-import {
-  BookOpen,
-  Bot,
-  Settings,
-  LayoutGrid,
-  PieChart,
-  ChevronRight,
-  ChevronsUpDown,
-} from "lucide-react"
-import Link from "next/link"
+// This is sample data.
+const data = {
+  user: {
+    name: "محمد رضا گلزار",
+    email: "",
+    avatar: "",
+  },
+  teams: [
+    {
+      name: "استادبان",
+      logo: (
+        <OSBN/>
+      ),
+      plan: "کنسول کاربری",
+    },
+    {
+      name: "Acme Corp.",
+      logo: (
+        <HugeiconsIcon icon={AudioWave01Icon} strokeWidth={2} />
+      ),
+      plan: "Startup",
+    },
+    {
+      name: "Evil Corp.",
+      logo: (
+        <HugeiconsIcon icon={CommandIcon} strokeWidth={2} />
+      ),
+      plan: "Free",
+    },
+  ],
+  navMain: [
+    {
+      title: "موجودیت‌ها",
+      url: "#",
+      icon: (
+        <HugeiconsIcon icon={ComputerTerminalIcon} strokeWidth={2} />
+      ),
+      isActive: true,
+      items: [
+        {
+          title: "دانشگاه",
+          url: "#",
+        },
+        {
+          title: "اساتید",
+          url: "#",
+        },
+        {
+          title: "درس",
+          url: "#",
+        },
+        {
+          title: "رشته",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "ثبت رای",
+      url: "#",
+      icon: (
+        <HugeiconsIcon icon={RoboticIcon} strokeWidth={2} />
+      ),
+      items: [
+        {
+          title: "رای جدید",
+          url: "#",
+        },
+        {
+          title: "لیست آرای من",
+          url: "#",
+        },
+        {
+          title: "گرایشی",
+          url: "#",
+        },
+      ],
+    },
+   
+  ],
+  projects: [
+    {
+      name: "مستندات",
+      url: "#",
+      icon: (
+        <HugeiconsIcon icon={CropIcon} strokeWidth={2} />
+      ),
+    },
+    {
+      name: "ثبت پیشنهادات",
+      url: "#",
+      icon: (
+        <HugeiconsIcon icon={PieChartIcon} strokeWidth={2} />
+      ),
+    },
+    {
+      name: "درباره ما",
+      url: "#",
+      icon: (
+        <HugeiconsIcon icon={MapsIcon} strokeWidth={2} />
+      ),
+    },
+  ],
+}
 
-export function AppSidebar() {
-  const [openMenu, setOpenMenu] = useState<string | null>(null)
-
-  const toggleMenu = (menu: string) => {
-    setOpenMenu((prev) => (prev === menu ? null : menu))
-  }
-
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar side="right" variant="floating" dir="rtl" className="border-r">
-      {/* ---------- HEADER ---------- */}
+    <Sidebar collapsible="icon" {...props} side="right" dir="rtl">
       <SidebarHeader>
-        <div className="flex items-center justify-between px-2 py-2">
-          <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-lg bg-blue-600" />
-            <div>
-              <p className="text-sm font-semibold">Acme Inc</p>
-              <p className="text-xs text-muted-foreground">
-                Enterprise
-              </p>
-            </div>
-          </div>
-          <ChevronsUpDown className="h-4 w-4 text-muted-foreground" />
-        </div>
+        <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
-      {/* ---------- CONTENT ---------- */}
       <SidebarContent>
-        {/* Platform */}
-        <SidebarGroup>
-          <SidebarGroupLabel>Platform</SidebarGroupLabel>
-
-          <SidebarMenu>
-            {/* Playground */}
-            <SidebarMenuItem>
-              <>
-                <SidebarMenuButton onClick={() => toggleMenu("playground")}>
-                  <LayoutGrid className="h-4 w-4" />
-                  Playground
-                  <ChevronRight
-                    className={`mr-auto h-4 w-4 transition-transform duration-200 ${
-                      openMenu === "playground" ? "rotate-90" : ""
-                    }`}
-                  />
-                </SidebarMenuButton>
-
-                {openMenu === "playground" && (
-                  <div className="mt-1 mr-6 space-y-1 text-sm text-muted-foreground">
-                    <Link href="/professors">
-                    <p className="cursor-pointer hover:text-foreground">
-                      professors
-                    </p>
-                    </Link>
-                    <Link href="/subjects">
-                    <p className="cursor-pointer hover:text-foreground">
-                      subjects
-                    </p>
-                    </Link>
-                    <Link href="/universitys">
-                    <p className="cursor-pointer hover:text-foreground">
-                      universitys
-                    </p>
-                    </Link>
-                  </div>
-                )}
-              </>
-            </SidebarMenuItem>
-
-            {/* Models */}
-            <SidebarMenuItem>
-              <>
-                <SidebarMenuButton onClick={() => toggleMenu("models")}>
-                  <Bot className="h-4 w-4" />
-                  Models
-                  <ChevronRight
-                    className={`mr-auto h-4 w-4 transition-transform duration-200 ${
-                      openMenu === "models" ? "rotate-90" : ""
-                    }`}
-                  />
-                </SidebarMenuButton>
-
-                {openMenu === "models" && (
-                  <div className="mt-1 mr-6 space-y-1 text-sm text-muted-foreground">
-                    <p className="cursor-pointer hover:text-foreground">
-                      hello
-                    </p>
-                    <p className="cursor-pointer hover:text-foreground">
-                      Fine-tuning
-                    </p>
-                  </div>
-                )}
-              </>
-            </SidebarMenuItem>
-
-            {/* Documentation */}
-            <SidebarMenuItem>
-              <>
-                <SidebarMenuButton onClick={() => toggleMenu("Documentation")}>
-                  <Bot className="h-4 w-4" />
-                  Documentation
-                  <ChevronRight
-                    className={`mr-auto h-4 w-4 transition-transform duration-200 ${
-                      openMenu === "models" ? "rotate-90" : ""
-                    }`}
-                  />
-                </SidebarMenuButton>
-
-                {openMenu === "Documentation" && (
-                  <div className="mt-1 mr-6 space-y-1 text-sm text-muted-foreground">
-                    <p className="cursor-pointer hover:text-foreground">
-                      API Reference
-                    </p>
-                    <p className="cursor-pointer hover:text-foreground">
-                      Guides
-                    </p>
-                  </div>
-                )}
-              </>
-            </SidebarMenuItem>
-
-            {/* Settings */}
-            <SidebarMenuItem>
-              <>
-                <SidebarMenuButton onClick={() => toggleMenu("settings")}>
-                  <Settings className="h-4 w-4" />
-                  Settings
-                  <ChevronRight
-                    className={`mr-auto h-4 w-4 transition-transform duration-200 ${
-                      openMenu === "settings" ? "rotate-90" : ""
-                    }`}
-                  />
-                </SidebarMenuButton>
-
-                {openMenu === "settings" && (
-                  <div className="mt-1 mr-6 space-y-1 text-sm text-muted-foreground">
-                    <p className="cursor-pointer hover:text-foreground">
-                      Profile
-                    </p>
-                    <p className="cursor-pointer hover:text-foreground">
-                      Billing
-                    </p>
-                  </div>
-                )}
-              </>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </SidebarGroup>
-
-        {/* Projects */}
-        <SidebarGroup>
-          <SidebarGroupLabel>Projects</SidebarGroupLabel>
-
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton>
-                <LayoutGrid className="h-4 w-4" />
-                Design Engineering
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-
-            <SidebarMenuItem>
-              <SidebarMenuButton>
-                <PieChart className="h-4 w-4" />
-                Sales & Marketing
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </SidebarGroup>
+        <NavMain items={data.navMain} />
+        <NavProjects projects={data.projects} />
       </SidebarContent>
-
-      {/* ---------- FOOTER ---------- */}
       <SidebarFooter>
-        <div className="flex items-center justify-between px-2 py-2">
-          <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-full bg-muted" />
-            <div>
-              <p className="text-sm font-medium">shadcn</p>
-              <p className="text-xs text-muted-foreground">
-                mohammad@example.com
-              </p>
-            </div>
-          </div>
-          <ChevronsUpDown className="h-4 w-4 text-muted-foreground" />
-        </div>
+        <NavUser user={data.user} />
       </SidebarFooter>
+      <SidebarRail />
     </Sidebar>
   )
 }

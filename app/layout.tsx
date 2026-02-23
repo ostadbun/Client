@@ -5,6 +5,7 @@ import { DirectionProvider } from "@base-ui/react";
 import { Metadata } from "next";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import { ThemeProvider } from "next-themes";
 
 const arad = localFont({
   src: "../public/font/AradVF.woff2",
@@ -27,15 +28,27 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body
         className={`${arad.className} antialiased`}>
-        <DirectionProvider direction="rtl">
-          <SidebarProvider>
-            <AppSidebar />
-            <main>
-              <SidebarTrigger />
-              {children}
-            </main>
-          </SidebarProvider>
-        </DirectionProvider>
+
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+
+          <DirectionProvider direction="rtl">
+            <SidebarProvider>
+              <AppSidebar />
+              <main>
+                <SidebarTrigger />
+                {children}
+              </main>
+            </SidebarProvider>
+          </DirectionProvider>
+
+        </ThemeProvider>
+
+
       </body>
     </html>
   );
