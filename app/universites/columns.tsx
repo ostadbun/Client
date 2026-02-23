@@ -45,11 +45,13 @@ export const columns: ColumnDef<Payment>[] = [
     id: "actions",
     cell: () => (
       <DropdownMenu>
-        <DropdownMenuTrigger >
-          <Button variant="ghost" className="h-8 w-8 p-0">
-            <MoreHorizontal className="h-4 w-4" />
-          </Button>
-        </DropdownMenuTrigger>
+        <DropdownMenuTrigger
+          render={(props) => (
+            <Button {...props} variant="ghost" className="h-8 w-8 p-0">
+              <MoreHorizontal className="h-4 w-4" />
+            </Button>
+          )}
+        />
         <DropdownMenuContent align="end">
           <DropdownMenuItem>View</DropdownMenuItem>
           <DropdownMenuItem>Delete</DropdownMenuItem>
