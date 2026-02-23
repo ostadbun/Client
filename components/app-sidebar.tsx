@@ -17,8 +17,8 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { LayoutBottomIcon, AudioWave01Icon, CommandIcon, ComputerTerminalIcon, RoboticIcon, BookOpen02Icon, Settings05Icon, CropIcon, PieChartIcon, MapsIcon } from "@hugeicons/core-free-icons"
 import { OSBN } from "@/iconjsx/logo"
 
-// This is sample data.
-const data = {
+
+let data = {
   user: {
     name: "محمد رضا گلزار",
     email: "",
@@ -28,7 +28,7 @@ const data = {
     {
       name: "استادبان",
       logo: (
-        <OSBN/>
+        <OSBN />
       ),
       plan: "کنسول کاربری",
     },
@@ -48,6 +48,7 @@ const data = {
     },
   ],
   navMain: [
+
     {
       title: "موجودیت‌ها",
       url: "#",
@@ -57,20 +58,12 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "دانشگاه",
-          url: "#",
+          title: "ثبت جدید",
+          url: "manipulation/university",
         },
         {
-          title: "اساتید",
-          url: "#",
-        },
-        {
-          title: "درس",
-          url: "#",
-        },
-        {
-          title: "رشته",
-          url: "#",
+          title: "لیست ثبت شده های من",
+          url: "manipulation/professor",
         },
       ],
     },
@@ -90,12 +83,12 @@ const data = {
           url: "#",
         },
         {
-          title: "گرایشی",
+          title: "دعوت دیگران",
           url: "#",
         },
       ],
     },
-   
+
   ],
   projects: [
     {
@@ -122,9 +115,36 @@ const data = {
   ],
 }
 
+
+
+
+// if this use is admin
+
+data.navMain.push(
+
+  {
+    title: "مدیریت",
+    url: "#",
+    icon: (
+      <HugeiconsIcon icon={Settings05Icon} strokeWidth={2} />
+    ),
+    isActive: true,
+    items: [
+      {
+        title: "لیست معلق ها",
+        url: "manipulation/university",
+      },
+      {
+        title: "لیست تایید کرده های من",
+        url: "manipulation/professor",
+      },
+    ],
+  },
+)
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon" {...props} side="right" dir="rtl">
+    <Sidebar collapsible="icon" {...props} side="right" dir="rtl" variant="floating">
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>

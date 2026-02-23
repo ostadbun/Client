@@ -24,9 +24,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+  
   return (
-    <html lang="fa" dir="rtl">
-      <body
+    <html lang="fa" dir="rtl" suppressHydrationWarning>
+      <body 
         className={`${arad.className} antialiased`}>
 
         <ThemeProvider
@@ -39,8 +42,8 @@ export default function RootLayout({
           <DirectionProvider direction="rtl">
             <SidebarProvider>
               <AppSidebar />
-              <main>
-                <SidebarTrigger />
+              <main className=" w-full">
+
                 {children}
               </main>
             </SidebarProvider>
