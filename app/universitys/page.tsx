@@ -1,9 +1,10 @@
+import { OSBN } from '@/iconjsx/logo';
 import React from 'react';
 
 const Page = () => {
     return (
         <div>
-            fvfdv
+            <OSBN/>
         </div>
     );
 }
