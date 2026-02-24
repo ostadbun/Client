@@ -2,7 +2,7 @@
 
 import { DataTable } from "@/components/data-table"
 import { columns, Payment } from "./columns"
-
+import LessonInfo from "./lessonInfo"
 const data: Payment[] = [
   {
     status: "success",
@@ -33,9 +33,9 @@ const data: Payment[] = [
 
 export default function Page() {
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-6 space-y-6">
+      <LessonInfo />
       <DataTable columns={columns} data={data} />
-      <br/>
       <DataTable columns={columns} data={data} />
     </div>
   )
