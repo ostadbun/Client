@@ -11,12 +11,23 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import usehardness from "@/hooks/use-hardness"
+import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from "@/components/ui/combobox"
+import useCities from "@/hooks/usecities"
 
 
 const page = () => {
 
 
     const c = usehardness()
+    const cities = useCities()
+
+    const cetegories = [
+        'دولتی',
+        'آزاد',
+        'غیر انتفاعی',
+        'پیام نور'
+    ]
+
 
     return (
 
@@ -31,7 +42,7 @@ const page = () => {
                 <h2
                     className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-center bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
                 >
-                    ثبت درس جدید
+                    ثبت دانشگاه جدید
 
                 </h2>
             </div>
@@ -111,24 +122,25 @@ const page = () => {
                 >
 
 
-                    سختی
+                    شهر
 
                 </p>
             </div>
-            <Select>
-                <SelectTrigger className="w-full">
-                    <SelectValue placeholder="انتخاب سختی" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectGroup>
-                        {[1, 2, 3, 4, 5].map((i) => {
-                            return (
-                                <SelectItem key={i} value={i}>{c(i)}</SelectItem>
-                            )
-                        })}
-                    </SelectGroup>
-                </SelectContent>
-            </Select>
+
+            <Combobox items={cities}>
+                <ComboboxInput placeholder="شهر را انتخاب کنید" />
+                <ComboboxContent>
+                    <ComboboxEmpty>موردی یافت نشد.</ComboboxEmpty>
+                    <ComboboxList>
+                        {(item) => (
+                            <ComboboxItem key={item} value={item}>
+                                {item}
+                            </ComboboxItem>
+                        )}
+                    </ComboboxList>
+                </ComboboxContent>
+            </Combobox>
+
 
 
 
@@ -138,13 +150,40 @@ const page = () => {
                 >
 
 
-                    ترم
+                    دسته بندی
 
                 </p>
             </div>
 
-            <Input type="number" min={1} max={10} />
+            <Combobox items={cetegories}>
+                <ComboboxInput placeholder="نوع دانشگاه خود را انتخاب کنید" />
+                <ComboboxContent>
+                    <ComboboxEmpty>موردی یافت نشد.</ComboboxEmpty>
+                    <ComboboxList>
+                        {(item) => (
+                            <ComboboxItem key={item} value={item}>
+                                {item}
+                            </ComboboxItem>
+                        )}
+                    </ComboboxList>
+                </ComboboxContent>
+            </Combobox>
 
+
+
+            <div className="mb-3 mt-6">
+                <p
+                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
+                >
+
+
+                    آدرس عکس
+
+                </p>
+            </div>
+
+
+            <Input />
 
 
 
