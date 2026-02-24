@@ -61,3 +61,10 @@ interface SubmissionData {
 
 
 
+
+
+export interface Professor_educationHistory {
+    universityName: string
+    degree: string
+    major: string
+}

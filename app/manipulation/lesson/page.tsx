@@ -132,6 +132,19 @@ const page = () => {
 
 
 
+            <div className="mb-3 mt-6">
+                <p
+                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
+                >
+
+
+                    ترم
+
+                </p>
+            </div>
+
+            <Input type="number" min={1} max={10} />
+
 
 
 
