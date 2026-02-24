@@ -1,12 +1,33 @@
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
 
-const LessonInfo = () => {
+type LessonInfoProps = {
+  level: number
+}
+
+export const hardnesser = (level: number): string => {
+  switch (level) {
+    case 1:
+      return "ساده"
+    case 2:
+      return "متوسط"
+    case 3:
+      return "چالش‌برانگیز"
+    case 4:
+      return "سخت"
+    case 5:
+      return "وحشتناک"
+    default:
+      return ""
+  }
+}
+
+const LessonInfo = ({ level }: LessonInfoProps) => {
   return (
     <div className="space-y-4 mb-6">
       <div className="flex items-center gap-4 justify-center">
         <Button className="text-base font-medium">
-          موضوع
+          {hardnesser(level)}
         </Button>
 
         <h2 className="text-2xl font-semibold">
@@ -31,4 +52,5 @@ const LessonInfo = () => {
     </div>
   )
 }
-export default LessonInfo;
+
+export default LessonInfo
