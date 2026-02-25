@@ -6,6 +6,9 @@ import { Metadata } from "next";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "sileo";
+
+
 
 const arad = localFont({
   src: "../public/font/AradVF.woff2",
@@ -26,12 +29,11 @@ export default function RootLayout({
 }>) {
 
 
-  
+
   return (
     <html lang="fa" dir="rtl" suppressHydrationWarning>
-      <body 
+      <body
         className={`${arad.className} antialiased`}>
-
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -40,6 +42,7 @@ export default function RootLayout({
         >
 
           <DirectionProvider direction="rtl">
+            <Toaster position="top-center" theme="dark" />
             <SidebarProvider>
               <AppSidebar />
               <main className=" w-full">

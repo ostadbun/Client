@@ -1,237 +1,198 @@
 "use client"
 
+import { useEffect, useState } from "react"
+import { useForm, useFieldArray } from "react-hook-form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
-import usehardness from "@/hooks/use-hardness"
-import { Field, FieldLabel } from "@/components/ui/field"
-import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "@/components/ui/input-group"
-import { Card } from "@/components/ui/card"
-import { ExampleWrapper } from "@/components/example"
 import { Button } from "@/components/ui/button"
-import { Plus } from "lucide-react"
-import { Professor_educationHistory } from "@/app/entity/entity"
-import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from "@/components/ui/combobox"
 import { Badge } from "@/components/ui/badge"
-
-
-const page = () => {
-
-
-
-
-
-    // const a: Professor_educationHistory
-
-    const degrees = [
-
-        "کارشناسی",
-        "کارشناسی ارشد",
-        "دکترا",
-
-    ]
-    return (
-
-        <div className="w-8/12  mx-auto ">
-
-
-
-            <div className="mb-3 mt-6">
-                <h2
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-center bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-                    ثبت استاد جدید
-
-                </h2>
-            </div>
-
-
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-                    نام درس
-
-                </p>
-            </div>
-
-            <Input />
-
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-                    نام انگلیسی
-                </p>
-            </div>
-            <Input />
-
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-
-                </p>
-
-
-            </div>
-
-
-
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-                    توضیحات
-
-                </p>
-            </div>
-
-            <Textarea />
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-                    توضیحات انگلیسی
-                </p>
-            </div>
-            <Textarea />
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-                    آدرس عکس
-                </p>
-            </div>
-            <Input />
-
-
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-
-
-                    سابقه
-
-                </p>
-            </div>
-
-            <Field>
-
-                <InputGroup>
-                    <InputGroupAddon align="inline-end">
-                        <InputGroupText>سال</InputGroupText>
-                    </InputGroupAddon>
-                    <InputGroupInput type="number" placeholder="3" />
-
-                </InputGroup>
-            </Field>
-
-
-
-            {/* <div className="border border-dashed "> */}
-
-
-            <div className="mb-3 mt-6 flex items-center gap-x-4">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-                    تحصیلات
-
-
-                </p>
-
-
-                <div className="my-6 gap-x-4 flex">
-
-
-                    <Badge >کارشناسی ارشد | تهران</Badge>
-                    <Badge >کارشناسی ارشد | تهران</Badge>
-                    <Badge >کارشناسی ارشد | تهران</Badge>
-
-                </div>
-
-            </div>
-
-
-
-
-
-
-            <div className="md:grid md:grid-cols-3 flex flex-wrap justify-between w-full gap-16">
-
-                <Combobox items={degrees} >
-                    <ComboboxInput placeholder="مقطع تحصیلی" />
-                    <ComboboxContent>
-                        <ComboboxEmpty>موردی یافت نشد.</ComboboxEmpty>
-                        <ComboboxList>
-                            {(item) => (
-                                <ComboboxItem key={item} value={item}>
-                                    {item}
-                                </ComboboxItem>
-                            )}
-                        </ComboboxList>
-                    </ComboboxContent>
-                </Combobox>
-
-
-                <InputGroup>
-                    <InputGroupAddon align="inline-start">
-                        <InputGroupText>دانشگاه</InputGroupText>
-                        <InputGroupInput placeholder="شریف" />
-                    </InputGroupAddon>
-
-
-                </InputGroup>
-
-                <InputGroup>
-                    <InputGroupAddon align="inline-start">
-                        <InputGroupText>رشته</InputGroupText>
-                        <InputGroupInput placeholder="مهندسی کامپیوتر" />
-                    </InputGroupAddon>
-
-
-                </InputGroup>
-
-            </div>
-            <div className="my-6">
-                <Button variant="outline" size="icon">
-                    <Plus />
-                </Button>
-
-            </div>
-
-
-
-        </div>
-    )
+import {
+    Combobox,
+    ComboboxContent,
+    ComboboxEmpty,
+    ComboboxInput,
+    ComboboxItem,
+    ComboboxList,
+} from "@/components/ui/combobox"
+import { Plus, X } from "lucide-react"
+import { sileo } from "sileo"
+import axios from "axios"
+import { api } from "@/app/api/base"
+
+type Education = {
+    degree: string
+    university: string
+    field: string
 }
 
+type FormValues = {
+    name: string
+    name_english: string
+    description: string
+    description_english: string
+    image_url: string
+    experienceYears: number
+    education_history: Education[]
+}
+
+export default function Page() {
+    const degrees = ["کارشناسی", "کارشناسی ارشد", "دکترا"]
+
+    const { register, control, handleSubmit } = useForm<FormValues>({
+        defaultValues: {
+            education_history: [],
+        },
+    })
+
+    const { fields, append, remove } = useFieldArray({
+        control,
+        name: "education_history",
+    })
+
+    // 🔹 state موقت برای آیتم جدید
+    const [tempEducation, setTempEducation] = useState<Education>({
+        degree: "",
+        university: "",
+        field: "",
+    })
+
+    const onSubmit = (data: FormValues) => {
+        if (data.education_history.length < 1) {
+            sileo.error({
+                title: 'تحصیلات نباید خالی باشد',
+            })
+        } else {
 
 
-export default page
+
+            api.post("/manipulation/professor", data).then(s => {
+                console.log(s.data)
+                sileo.success({
+                    title: 'با موفقیت به لیست معلق ها اضاف شد !'
+                })
+            })
+
+        }
+    }
+
+
+    return (
+        <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="w-8/12 mx-auto space-y-6"
+        >
+            <h2 className="text-3xl font-extrabold text-center">
+                ثبت استاد
+            </h2>
+
+            <Input placeholder="نام درس" {...register("name", { required: true })} />
+            <Input placeholder="نام انگلیسی" {...register("name_english", { required: true })} />
+            <Textarea placeholder="توضیحات" {...register("description", { required: true })} />
+            <Textarea placeholder="توضیحات انگلیسی" {...register("description_english", { required: true })} />
+            <Input placeholder="آدرس عکس" {...register("image_url", { required: true })} />
+
+            <Input
+                type="number"
+                placeholder="سابقه (سال)"
+                {...register("experienceYears", { valueAsNumber: true, required: true })}
+            />
+
+            {/* ===== EDUCATIONS ===== */}
+
+            <div>
+                <h3 className="text-xl font-bold mb-4">تحصیلات</h3>
+
+                {/* لیست ثبت شده‌ها */}
+                <div className="flex gap-3 flex-wrap mb-4">
+                    {fields.map((item, index) => (
+                        <Badge key={item.id} className="flex items-center gap-2">
+                            {item.degree} | {item.university}
+                            <X
+                                className="cursor-pointer w-4 h-4"
+                                onClick={() => remove(index)}
+                            />
+                        </Badge>
+                    ))}
+                </div>
+
+                {/* فرم افزودن */}
+                <div className="grid md:grid-cols-3 gap-4">
+                    <Combobox
+                        items={degrees}
+                        onValueChange={(val) =>
+                            setTempEducation((prev: Education) => ({
+                                ...prev,
+                                degree: val as string,
+                            }))
+                        }
+                    >
+                        <ComboboxInput placeholder="مقطع تحصیلی" />
+                        <ComboboxContent>
+                            <ComboboxEmpty>موردی یافت نشد</ComboboxEmpty>
+                            <ComboboxList>
+                                {(item) => (
+                                    <ComboboxItem key={item} value={item}>
+                                        {item}
+                                    </ComboboxItem>
+                                )}
+                            </ComboboxList>
+                        </ComboboxContent>
+                    </Combobox>
+
+                    <Input
+                        placeholder="دانشگاه"
+                        value={tempEducation.university}
+                        onChange={(e) =>
+                            setTempEducation((prev) => ({
+                                ...prev,
+                                university: e.target.value,
+                            }))
+                        }
+                    />
+
+                    <Input
+                        placeholder="رشته"
+                        value={tempEducation.field}
+                        onChange={(e) =>
+                            setTempEducation((prev) => ({
+                                ...prev,
+                                field: e.target.value,
+                            }))
+                        }
+                    />
+                </div>
+
+                <div className="mt-4">
+                    <Button
+                        type="button"
+                        variant="outline"
+                        size="icon"
+                        onClick={() => {
+                            if (
+                                !tempEducation.degree ||
+                                !tempEducation.university ||
+                                !tempEducation.field
+                            )
+                                return
+
+                            append(tempEducation)
+
+                            // reset temp
+                            setTempEducation({
+                                degree: "",
+                                university: "",
+                                field: "",
+                            })
+                        }}
+                    >
+                        <Plus />
+                    </Button>
+                </div>
+            </div>
+
+            <Button type="submit" className="w-full">
+                ثبت
+            </Button>
+        </form>
+    )
+}
