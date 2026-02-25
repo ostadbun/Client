@@ -1,196 +1,122 @@
 "use client"
 
+import { useForm } from "react-hook-form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
-import usehardness from "@/hooks/use-hardness"
+import { Button } from "@/components/ui/button"
 import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from "@/components/ui/combobox"
 import useCities from "@/hooks/usecities"
-
-
-const page = () => {
-
-
-    const c = usehardness()
-    const cities = useCities()
-
-    const cetegories = [
-        'دولتی',
-        'آزاد',
-        'غیر انتفاعی',
-        'پیام نور'
-    ]
-
-
-    return (
-
-        <div className="w-8/12  mx-auto">
-
-
-
-
-
-
-            <div className="mb-3 mt-6">
-                <h2
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-center bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-                    ثبت دانشگاه جدید
-
-                </h2>
-            </div>
-
-
-
-
-
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-                    نام درس
-
-                </p>
-            </div>
-
-            <Input />
-
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-                    نام انگلیسی
-                </p>
-            </div>
-            <Input />
-
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-
-                </p>
-
-
-            </div>
-
-
-
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-                    توضیحات
-
-                </p>
-            </div>
-
-            <Textarea />
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-                    توضیحات انگلیسی
-
-                </p>
-            </div>
-            <Textarea />
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-                    شهر
-
-                </p>
-            </div>
-
-            <Combobox items={cities}>
-                <ComboboxInput placeholder="شهر را انتخاب کنید" />
-                <ComboboxContent>
-                    <ComboboxEmpty>موردی یافت نشد.</ComboboxEmpty>
-                    <ComboboxList>
-                        {(item) => (
-                            <ComboboxItem key={item} value={item}>
-                                {item}
-                            </ComboboxItem>
-                        )}
-                    </ComboboxList>
-                </ComboboxContent>
-            </Combobox>
-
-
-
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-                    دسته بندی
-
-                </p>
-            </div>
-
-            <Combobox items={cetegories}>
-                <ComboboxInput placeholder="نوع دانشگاه خود را انتخاب کنید" />
-                <ComboboxContent>
-                    <ComboboxEmpty>موردی یافت نشد.</ComboboxEmpty>
-                    <ComboboxList>
-                        {(item) => (
-                            <ComboboxItem key={item} value={item}>
-                                {item}
-                            </ComboboxItem>
-                        )}
-                    </ComboboxList>
-                </ComboboxContent>
-            </Combobox>
-
-
-
-            <div className="mb-3 mt-6">
-                <p
-                    className=" text-[2rem] sm:text-[3rem] md:text-[2rem] font-extrabold text-right bg-linear-to-t from-[black]/60 to-[black] dark:from-[white]/60 dark:to-[pink]/30 text-transparent bg-clip-text"
-                >
-
-
-                    آدرس عکس
-
-                </p>
-            </div>
-
-
-            <Input />
-
-
-
-        </div>
-    )
+import { sileo } from "sileo"
+import { api } from "@/app/api/base"
+
+type FormValues = {
+    name: string
+    name_english: string
+    description: string
+    description_english: string
+    city: string
+    category: string
+    image_url: string
 }
 
+export default function Page() {
+    const cities = useCities()
+    const categories = ["دولتی", "آزاد", "غیر انتفاعی", "پیام نور"]
+
+    const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<FormValues>({
+        defaultValues: {
+            name: "",
+            name_english: "",
+            description: "",
+            description_english: "",
+            city: "",
+            category: "",
+            image_url: "",
+        },
+    })
+
+    const onSubmit = (data: FormValues) => {
 
 
-export default page
+        if (data.city.length < 1) {
+            sileo.error({ title: 'شهر را انتخاب کنید' })
+        } else if (data.category.length < 1) {
+            sileo.error({ title: 'دسته بندی را انتخاب کنید' })
+        } else {
+
+            console.log("Form submitted:", data)
+
+            api.post("/manipulation/university",data).then(s => {
+                console.log(s.data)
+                sileo.success({
+                    title: 'با موفقیت به لیست معلق ها اضاف شد !'
+                })
+            })
+        }
+
+
+
+        // اینجا api.post(...)
+    }
+
+    const cityValue = watch("city")
+    const categoryValue = watch("category")
+
+    return (
+        <form onSubmit={handleSubmit(onSubmit)} className="w-8/12 mx-auto space-y-6">
+            <h2 className="text-3xl font-extrabold text-center">ثبت دانشگاه جدید</h2>
+
+            {/* نام درس */}
+            <Input placeholder="نام درس" {...register("name", { required: true })} />
+
+
+            {/* نام انگلیسی */}
+            <Input placeholder="نام انگلیسی" {...register("name_english", { required: true })} />
+
+
+            {/* توضیحات */}
+            <Textarea placeholder="توضیحات" {...register("description", { required: true })} />
+
+
+            {/* توضیحات انگلیسی */}
+            <Textarea placeholder="توضیحات انگلیسی" {...register("description_english", { required: true })} />
+
+
+            {/* شهر */}
+            <Combobox
+                items={cities}
+                onValueChange={(val) => setValue("city", val as string)}
+            >
+                <ComboboxInput placeholder="شهر را انتخاب کنید" value={cityValue} readOnly />
+                <ComboboxContent>
+                    <ComboboxEmpty>موردی یافت نشد.</ComboboxEmpty>
+                    <ComboboxList>
+                        {(item) => <ComboboxItem key={item} value={item}>{item}</ComboboxItem>}
+                    </ComboboxList>
+                </ComboboxContent>
+            </Combobox>
+            {errors.city && <p className="text-red-500">شهر الزامی است</p>}
+
+            {/* دسته بندی */}
+            <Combobox
+                items={categories}
+                onValueChange={(val) => setValue("category", val as string)}
+            >
+                <ComboboxInput placeholder="نوع دانشگاه خود را انتخاب کنید" value={categoryValue} readOnly />
+                <ComboboxContent>
+                    <ComboboxEmpty>موردی یافت نشد.</ComboboxEmpty>
+                    <ComboboxList>
+                        {(item) => <ComboboxItem key={item} value={item}>{item}</ComboboxItem>}
+                    </ComboboxList>
+                </ComboboxContent>
+            </Combobox>
+
+
+            {/* آدرس عکس */}
+            <Input placeholder="آدرس عکس" {...register("image_url", { required: true })} />
+
+
+            <Button type="submit" className="w-full">ثبت</Button>
+        </form>
+    )
+}
