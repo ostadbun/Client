@@ -46,7 +46,7 @@ export default function Page() {
 
         if (data.difficulty < 1) {
             sileo.error({ title: 'سطح سختی را انتخاب کنید' })
-        } else if (data.term.length < 1) {
+        } else if (data.term?.length < 1) {
             sileo.error({ title: 'شماره ترم را وارد کنید' })
         } else {
             console.log("Form submitted:", data)

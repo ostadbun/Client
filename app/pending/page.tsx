@@ -1,5 +1,3 @@
-// app/pending/page.tsx
-
 import { api } from "../api/base";
 import { PendingSubmissionsResponse } from "../entity/entity";
 
@@ -21,9 +19,18 @@ export default async function PendingPage() {
 
   try {
     const response = await api.get<PendingSubmissionsResponse>("/pending");
+
+    // Validate the response
+    if (!response || !response.data) {
+      throw new Error("پاسخ نامعتبر از سرور");
+    }
+
     data = response.data;
   } catch (err) {
-    console.error("خطا در دریافت داده‌های در انتظار تأیید:", err);
+    console.log("خطا در دریافت داده‌های در انتظار تأیید:", err);
+    if (err instanceof Error) {
+      console.log("جزئیات خطا:", err.message, err.stack);
+    }
     error = "متأسفانه در بارگذاری داده‌ها مشکلی پیش آمد. لطفاً بعداً امتحان کنید.";
   }
 
@@ -37,10 +44,10 @@ export default async function PendingPage() {
 
   const hasAnyData =
     data &&
-    (data.lesson.length > 0 ||
-      data.professor.length > 0 ||
-      data.university.length > 0 ||
-      data.major.length > 0);
+    (data?.lesson?.length > 0 ||
+      data?.professor?.length > 0 ||
+      data?.university?.length > 0 ||
+      data?.major?.length > 0);
 
   if (!hasAnyData) {
     return (
@@ -64,16 +71,16 @@ export default async function PendingPage() {
       </div>
 
       {/* درس‌ها */}
-      {data?.lesson.length ? (
+      {data?.lesson?.length ? (
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-6">
             <BookOpen className="h-6 w-6 text-primary" />
             <h2 className="text-2xl font-semibold">درس‌ها</h2>
-            <Badge variant="secondary">{data.lesson.length}</Badge>
+            <Badge variant="secondary">{data?.lesson?.length}</Badge>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {data.lesson.map((lesson) => (
+            {data?.lesson?.map((lesson) => (
               <Card key={lesson.id} className="overflow-hidden">
                 <CardHeader className="pb-3">
                   <CardTitle className="line-clamp-2">{lesson.name}</CardTitle>
@@ -113,16 +120,16 @@ export default async function PendingPage() {
       ) : null}
 
       {/* اساتید */}
-      {data?.professor.length ? (
+      {data?.professor?.length ? (
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-6">
             <GraduationCap className="h-6 w-6 text-primary" />
             <h2 className="text-2xl font-semibold">اساتید</h2>
-            <Badge variant="secondary">{data.professor.length}</Badge>
+            <Badge variant="secondary">{data?.professor?.length}</Badge>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {data.professor.map((prof) => (
+            {data?.professor.map((prof) => (
               <Card key={prof.id} className="overflow-hidden">
                 <CardHeader className="pb-3">
                   <CardTitle>{prof.name}</CardTitle>
@@ -165,16 +172,16 @@ export default async function PendingPage() {
       ) : null}
 
       {/* دانشگاه‌ها */}
-      {data?.university.length ? (
+      {data?.university?.length ? (
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-6">
             <UniversityIcon className="h-6 w-6 text-primary" />
             <h2 className="text-2xl font-semibold">دانشگاه‌ها</h2>
-            <Badge variant="secondary">{data.university.length}</Badge>
+            <Badge variant="secondary">{data?.university?.length}</Badge>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {data.university.map((uni) => (
+            {data?.university?.map((uni) => (
               <Card key={uni.id} className="overflow-hidden">
                 <CardHeader className="pb-3">
                   <CardTitle className="line-clamp-2">{uni.name}</CardTitle>
@@ -219,12 +226,12 @@ export default async function PendingPage() {
       ) : null}
 
       {/* رشته‌ها */}
-      {data?.major.length ? (
+      {data?.major?.length ? (
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-6">
             <GraduationCap className="h-6 w-6 text-primary" />
             <h2 className="text-2xl font-semibold">رشته‌ها</h2>
-            <Badge variant="secondary">{data.major.length}</Badge>
+            <Badge variant="secondary">{data.major?.length}</Badge>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

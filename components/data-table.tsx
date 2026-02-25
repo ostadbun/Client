@@ -100,7 +100,7 @@ const [columnFilters, setColumnFilters] =
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length}>
+              <TableCell colSpan={columns?.length}>
                 No results.
               </TableCell>
             </TableRow>
@@ -110,8 +110,8 @@ const [columnFilters, setColumnFilters] =
 <div className="flex items-center justify-between px-2 py-4">
   {/* left side */}
   <div className="text-sm text-muted-foreground">
-    {table.getFilteredSelectedRowModel().rows.length} of{" "}
-    {table.getFilteredRowModel().rows.length} row(s) selected.
+    {table.getFilteredSelectedRowModel()?.rows?.length} of{" "}
+    {table.getFilteredRowModel()?.rows?.length} row(s) selected.
   </div>
 
   {/* right side */}
