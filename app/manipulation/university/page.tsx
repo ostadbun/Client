@@ -38,9 +38,9 @@ export default function Page() {
     const onSubmit = (data: FormValues) => {
 
 
-        if (data.city.length < 1) {
+        if (data.city?.length < 1) {
             sileo.error({ title: 'شهر را انتخاب کنید' })
-        } else if (data.category.length < 1) {
+        } else if (data.category?.length < 1) {
             sileo.error({ title: 'دسته بندی را انتخاب کنید' })
         } else {
 
