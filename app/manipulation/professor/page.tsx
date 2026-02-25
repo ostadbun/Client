@@ -57,7 +57,7 @@ export default function Page() {
     })
 
     const onSubmit = (data: FormValues) => {
-        if (data.education_history.length < 1) {
+        if (data.education_history?.length < 1) {
             sileo.error({
                 title: 'تحصیلات نباید خالی باشد',
             })
