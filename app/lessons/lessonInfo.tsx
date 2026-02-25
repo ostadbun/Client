@@ -3,6 +3,7 @@ import { Separator } from "@/components/ui/separator"
 
 type LessonInfoProps = {
   level: number
+  semesterInfo:SemesterInfo
 }
 
 export const hardnesser = (level: number): string => {
@@ -22,7 +23,10 @@ export const hardnesser = (level: number): string => {
   }
 }
 
-const LessonInfo = ({ level }: LessonInfoProps) => {
+type SemesterInfo = 1|2|3|4|5|6|7|8|9|10|11|12
+
+const LessonInfo = ({ level,semesterInfo }: LessonInfoProps
+) => {
   return (
     <div className="space-y-4 mb-6">
       <div className="flex items-center gap-4 justify-center">
@@ -35,7 +39,7 @@ const LessonInfo = ({ level }: LessonInfoProps) => {
         </h2>
 
         <Button className="text-base font-medium">
-          موضوع
+           ترم {semesterInfo}
         </Button>
       </div>
 
