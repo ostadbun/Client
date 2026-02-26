@@ -2,6 +2,7 @@
 
 import { DataTable } from "@/components/data-table"
 import { columns, Payment } from "./columns"
+import ProfessorsInfo from "./professorsInfo"
 
 const data: Payment[] = [
   {
@@ -33,10 +34,21 @@ const data: Payment[] = [
 
 export default function Page() {
   return (
-    <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
-      <br/>
-      <DataTable columns={columns} data={data} />
+    <div className=" mx-auto py-10">
+      
+      <ProfessorsInfo 
+        teachingYears={4}
+        address="lahijan"
+        major="computer"
+        degree="12"
+        university="sharif"
+      />
+
+      <div className="mx-auto max-w-screen-xl px-6 grid grid-cols-2 gap-8">
+        <DataTable columns={columns} data={data} />
+        <DataTable columns={columns} data={data} />
+      </div>
+
     </div>
   )
 }

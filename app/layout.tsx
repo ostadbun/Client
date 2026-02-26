@@ -6,7 +6,8 @@ import { Metadata } from "next";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "next-themes";
-import { Toaster } from "sileo";
+import { Toaster } from "@/components/ui/sonner";
+
 
 
 

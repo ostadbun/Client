@@ -33,10 +33,15 @@ const data: Payment[] = [
 
 export default function Page() {
   return (
-    <div className="container mx-auto py-6 space-y-6">
-      <LessonInfo semesterInfo={6} level={2} />
-      <DataTable columns={columns} data={data} />
-      <DataTable columns={columns} data={data} />
+    <div className=" mx-auto py-10">
+      
+      <LessonInfo level={3} semesterInfo={6} />
+
+      <div className="mx-auto max-w-screen-xl pt-24 grid grid-cols-2 gap-8">
+        <DataTable columns={columns} data={data} />
+        <DataTable columns={columns} data={data} />
+      </div>
+
     </div>
   )
 }

@@ -60,7 +60,7 @@ const [columnFilters, setColumnFilters] =
   })
 
   return (
-    <div className="mx-auto w-full max-w-3xl rounded-md border">
+    <div className="mx-auto w-full  rounded-md border">
       <Input
         placeholder="Filter emails..."
         value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
