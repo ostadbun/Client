@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 
-const LessonInfo = () => {
+const UniversitiesInfo = () => {
   return (
     <div className="space-y-2 mb-[3vh]">
       <h2 className="text-2xl place-self-center font-semibold">shadcn/ui</h2>
@@ -15,4 +15,4 @@ const LessonInfo = () => {
     </div>
   )
 }
-export default LessonInfo;
+export default UniversitiesInfo;

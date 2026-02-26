@@ -33,10 +33,13 @@ const data: Payment[] = [
 
 export default function Page() {
   return (
-    <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
-      <br/>
-      <DataTable columns={columns} data={data} />
+    <div className=" mx-auto py-10">
+
+      <div className="mx-auto max-w-screen-xl px-6 grid grid-cols-2 gap-8">
+        <DataTable columns={columns} data={data} />
+        <DataTable columns={columns} data={data} />
+      </div>
+
     </div>
   )
 }
