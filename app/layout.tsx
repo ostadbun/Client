@@ -41,10 +41,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
 
+
           <DirectionProvider direction="rtl">
             <Toaster position="top-center" theme="dark" />
             <SidebarProvider>
-              <AppSidebar />
+              {/* <AppSidebar /> */}
               <main className=" w-full">
 
                 {children}
