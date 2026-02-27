@@ -46,7 +46,7 @@ const Page = () => {
 
         if (!query) return
 
-        setEndpoint(`academic?university=${query}`)
+        setEndpoint(`academic?university=${encodeURIComponent(query)}`)
     }
 
     return (

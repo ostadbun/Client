@@ -1,5 +1,4 @@
-import { api } from "@/app/api/base"
-import useSWR from "swr"
+
 
 
 const data = {
@@ -19,13 +18,14 @@ const data = {
 
 
 
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+export default async function Page({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const { slug } = params
 
-    const { slug } = await params
-
-
-
-    return (
-        <div>My Post: {slug}</div>
-    )
+  return (
+    <div>My Post: {slug}</div>
+  )
 }
