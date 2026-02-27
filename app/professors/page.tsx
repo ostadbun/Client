@@ -36,7 +36,8 @@ export default function Page() {
   return (
     <div className=" mx-auto py-10">
       
-      <ProfessorsInfo 
+      <ProfessorsInfo
+        imageSrc="https://blog.faradars.org/wp-content/uploads/2024/12/siavash-shahshahani.jpg"
         teachingYears={4}
         address="lahijan"
         major="computer"

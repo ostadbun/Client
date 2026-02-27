@@ -38,7 +38,7 @@ export default function Page() {
       
       <UniversitiesInfo/>
 
-      <div className="mx-auto max-w-screen-xl pt-24 grid grid-cols-2 gap-8">
+      <div className="mx-auto max-w-screen-xl pt-16 grid grid-cols-2 gap-8">
         <DataTable columns={columns} data={data} />
         <DataTable columns={columns} data={data} />
       </div>

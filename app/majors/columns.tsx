@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { MoreHorizontal, ArrowUpDown } from "lucide-react"
 
 export type Payment = {
-  status: "success" | "processing" | "failed"
+  id: 1|2|3|4|5
   email: string
   amount: number
 }

@@ -35,7 +35,7 @@ const LessonInfo = ({ level,semesterInfo }: LessonInfoProps
         </Button>
 
         <h2 className="text-2xl font-semibold">
-          shadcn/ui
+          سیستم های عامل
         </h2>
 
         <Button className="text-base font-medium">
@@ -44,14 +44,13 @@ const LessonInfo = ({ level,semesterInfo }: LessonInfoProps
       </div>
 
       <p className="text-muted-foreground text-center">
-        The Foundation for your Design System
+        درس سیستم‌های عامل، جایی برای درک عمیق مدیریت پردازش‌ها، حافظه و قلب تپنده‌ی هر سیستم محاسباتی است.
       </p>
 
       <Separator />
 
       <p className="text-center">
-        A set of beautifully designed components that you can customize,
-        extend, and build on.
+        سیستم‌های عامل قلب تپنده‌ی هر رایانه‌اند؛ نرم‌افزاری که میان سخت‌افزار و کاربر پل می‌زند و همه چیز را هماهنگ و قابل استفاده می‌کند.
       </p>
     </div>
   )
