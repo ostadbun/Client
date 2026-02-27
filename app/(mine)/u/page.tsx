@@ -9,117 +9,131 @@ import Link from "next/link"
 import { FormEvent, useRef, useState } from "react"
 import useSWR from "swr"
 
-
 interface Entity {
-    id: string
-    name: string
-    name_english: string
-    city: string
-    category: string
-    image_url: string
-    description: string
-    description_english: string
-    registered_by: string
-    status: string
+  id: string
+  name: string
+  name_english: string
+  city: string
+  category: string
+  image_url: string
+  description: string
+  description_english: string
+  registered_by: string
+  status: string
 }
 
-interface IEntity {
-    university: Entity[]
-}
+const fetcher = async (url: string): Promise<Entity[]> => {
+  const res = await api.get(url)
 
-const fetcher = (url: string) =>
-    api.get(url).then((res) => res.data)
+  // اگر API مستقیم آرایه برگردونه
+  if (Array.isArray(res.data)) return res.data
+
+  // اگر داخل university باشه
+  if (res.data.university) return res.data.university
+
+  return []
+}
 
 const Page = () => {
-    const [endpoint, setEndpoint] = useState<string | null>(null)
-    const ref = useRef<HTMLInputElement>(null)
+  const [endpoint, setEndpoint] = useState<string | null>(null)
+  const ref = useRef<HTMLInputElement>(null)
 
-    const { data, error, isLoading } = useSWR<IEntity>(
-        endpoint ? endpoint : null,
-        fetcher
-    )
-
-    const request = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-
-        const query = ref.current?.value?.trim()
-
-        if (!query) return
-
-        setEndpoint(`academic?university=${encodeURIComponent(query)}`)
+  const { data, error, isLoading } = useSWR<Entity[]>(
+    endpoint,
+    fetcher,
+    {
+      revalidateOnFocus: false,
     }
+  )
 
-    return (
-        <div >
-            <div className="w-8/12 justify-center md:w-6/12 mx-auto mt-12 flex flex-wrap gap-4">
-                <form onSubmit={request} className="flex gap-4 flex-wrap w-full">
-                    <Input
+  const request = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
 
-                        ref={ref}
-                        className="h-14 w-full"
-                        placeholder="جست و جو در دانشگاه ها"
-                    />
-                    <Button type="submit" className="w-full">
-                        جست و جو
-                    </Button>
-                </form>
+    const query = ref.current?.value?.trim()
+    if (!query) return
+
+    setEndpoint(`academic?university=${encodeURIComponent(query)}`)
+  }
+
+  return (
+    <div>
+      {/* Search */}
+      <div className="w-10/12 md:w-6/12 mx-auto mt-12">
+        <form onSubmit={request} className="flex gap-4 flex-wrap w-full">
+          <Input
+            ref={ref}
+            className="h-14 w-full"
+            placeholder="جست و جو در دانشگاه ها"
+          />
+          <Button type="submit" className="w-full">
+            جست و جو
+          </Button>
+        </form>
+      </div>
+
+      {/* Loading */}
+      {isLoading && (
+        <div className="text-center mt-8">loading...</div>
+      )}
+
+      {/* Error */}
+      {error && (
+        <div className="text-center mt-8 text-red-500">
+          error loading data
+        </div>
+      )}
+
+      {/* Data */}
+      {data && (
+        <div className="mt-10 w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {data.length === 0 ? (
+            <div className="text-center col-span-full">
+              no data
             </div>
+          ) : (
+            data.map((v) => (
+              <Card
+                key={v.id}
+                className="p-4 flex flex-col items-center text-center gap-3"
+              >
+                <h2 className="text-xl font-semibold">
+                  {v.name}
+                </h2>
 
-            {/* Loading */}
-            {isLoading && (
-                <div className="text-center mt-6">
-                    loading...
-                </div>
-            )}
+                <p className="text-sm text-gray-500">
+                  {v.city}
+                </p>
 
-            {/* Error */}
-            {error && (
-                <div className="text-center mt-6 text-red-500">
-                    error loading data
-                </div>
-            )}
+                <p className="text-xs line-clamp-3">
+                  {v.description}
+                </p>
 
-            {/* Data */}
-            {data && !isLoading && (
-                <div className="mt-8 gap-4 text-center mx-auto w-8/12 grid justify-center grid-cols-4 ">
-                    {data?.university?.length === 0 ? (
-                        <div>no data</div>
-                    ) : (
-                        data?.university?.map((v) => (
+                {v.image_url && (
+                  <Image
+                    src={v.image_url}
+                    width={300}
+                    height={200}
+                    alt={v.name || "university image"}
+                    className="rounded-md"
+                  />
+                )}
 
-                            <Card key={v.id} className=" flex justify-center">
+                <span className="text-sm font-medium">
+                  {v.category}
+                </span>
 
-                                <div >
-                                    <h1 className="text-2xl">
-                                        {v.name}
-                                    </h1>
-                                    <br />
-                                    <p className="text-xs"> {v.city}</p>
-                                    <br />
-                                    <p className="text-xs">{v.description}</p>
-                                    <br />
-                                    <Image src={v.image_url} width={300} height={300} alt={v.name_english} />
-
-                                    <br />
-                                    {v.category}
-                                    <br />
-
-                                </div>
-
-                                <Link href={`u/${v.id}`}>
-                                    <Button className="w-fit">
-                                        ورود به صفحه
-                                    </Button>
-                                </Link>
-                            </Card>
-
-                        ))
-                    )}
-                </div>
-            )
-            }
-        </div >
-    )
+                <Link href={`/u/${v.id}`}>
+                  <Button>
+                    ورود به صفحه
+                  </Button>
+                </Link>
+              </Card>
+            ))
+          )}
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default Page
